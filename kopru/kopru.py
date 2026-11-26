@@ -448,6 +448,17 @@ def main():
         log(f"DENEME BAKIYESI ACIK: demo hesap {DENEME_BAKIYESI:.0f} $ ile baslamis gibi islem yapilacak "
             f"(risk, olum cizgisi ve zarar sinirlari {DENEME_BAKIYESI:.0f} $'a gore).")
     kablo_ok = kablo_testi()
+    try:
+        if github_oku("sinyaller/takvim.json") is None:
+            log(f"DIKKAT: GitHub deposu ({DEPO}) okunamiyor. Depo GIZLI olabilir; "
+                "Settings > General > Danger Zone > Change visibility > Public yapin. "
+                "Depo okunamazsa kopru hicbir sinyal goremez.")
+            kablo_ok = False
+        else:
+            log("GitHub deposu okunuyor: TAMAM")
+    except Exception as e:
+        log(f"DIKKAT: GitHub deposuna ulasilamadi: {e}")
+        kablo_ok = False
     print()
     canli = False
     if not kablo_ok:

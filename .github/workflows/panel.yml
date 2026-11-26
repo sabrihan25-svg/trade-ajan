@@ -1,0 +1,32 @@
+name: Panel
+# Komuta merkezi panelini GitHub Pages'te yayinlar (telefondan da acilir).
+# Bir kez: Settings > Pages > Source: "GitHub Actions" secilmeli.
+on:
+  push:
+    branches: [main]
+    paths: ["panel/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  yayinla:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir -p site && cp panel/panel.html site/index.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
