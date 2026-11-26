@@ -1,5 +1,5 @@
 {
-  "beyin_acik": false,
+  "beyin_acik": true,
   "semboller": {
     "EURUSD": {"veri_kodu": "EURUSD=X", "tipik_fark": 0.00008, "para_birimleri": ["EUR", "USD"]},
     "USDJPY": {"veri_kodu": "JPY=X",    "tipik_fark": 0.012,   "para_birimleri": ["USD", "JPY"]},
