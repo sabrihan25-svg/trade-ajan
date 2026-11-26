@@ -41,7 +41,7 @@ jobs:
             git add durum sinyaller
             if ! git diff --cached --quiet; then
               git commit -q -m "beyin: $(date -u '+%Y-%m-%d %H:%M') UTC"
-              git pull -q --rebase origin main && git push -q origin HEAD:main || echo "Gonderme hatasi"
+              git pull -q --rebase --autostash origin main && git push -q origin HEAD:main || echo "Gonderme hatasi"
             fi
             python -c "from beyin import kurallar as k; import sys; sys.exit(0 if k.piyasa_acik_mi(k.utc_simdi()) else 1)" || { echo "Piyasa kapali, dongu bitti."; break; }
             if [ "$i" -lt 9 ]; then sleep 180; fi
