@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+kopru/kopru_durum.json
+kopru/kopru_log.txt
+rapor.txt

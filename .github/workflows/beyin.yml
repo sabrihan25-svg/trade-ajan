@@ -1,0 +1,48 @@
+name: Beyin
+# Her 30 dakikada bir baslar, icinde ~3 dakika arayla 9 gecis yapar (~27 dk).
+# GitHub'in zamanlayicisi bazen birkac dakika gecikebilir; bu normaldir.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: beyin
+  cancel-in-progress: false
+
+jobs:
+  beyin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Beyin dongusu
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          git config user.name "trade-ajan-beyin"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! python -c "import json,sys; sys.exit(0 if json.load(open('config/ayarlar.json')).get('beyin_acik') else 1)"; then
+            echo "Beyin kapali (config/ayarlar.json -> beyin_acik: false)."; exit 0
+          fi
+          for i in $(seq 1 9); do
+            echo "----- Gecis $i  $(date -u '+%Y-%m-%d %H:%M') UTC -----"
+            python -m beyin.ana || echo "Gecis hatasi (bir sonraki geciste tekrar denenecek)"
+            git add durum sinyaller
+            if ! git diff --cached --quiet; then
+              git commit -q -m "beyin: $(date -u '+%Y-%m-%d %H:%M') UTC"
+              git pull -q --rebase origin main && git push -q origin HEAD:main || echo "Gonderme hatasi"
+            fi
+            python -c "from beyin import kurallar as k; import sys; sys.exit(0 if k.piyasa_acik_mi(k.utc_simdi()) else 1)" || { echo "Piyasa kapali, dongu bitti."; break; }
+            if [ "$i" -lt 9 ]; then sleep 180; fi
+          done

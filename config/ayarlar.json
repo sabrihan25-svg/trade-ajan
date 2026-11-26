@@ -1,0 +1,22 @@
+{
+  "beyin_acik": false,
+  "semboller": {
+    "EURUSD": {"veri_kodu": "EURUSD=X", "tipik_fark": 0.00008, "para_birimleri": ["EUR", "USD"]},
+    "USDJPY": {"veri_kodu": "JPY=X",    "tipik_fark": 0.012,   "para_birimleri": ["USD", "JPY"]},
+    "GBPUSD": {"veri_kodu": "GBPUSD=X", "tipik_fark": 0.00014, "para_birimleri": ["GBP", "USD"]}
+  },
+  "modeller": {
+    "claude":   {"saglayici": "anthropic", "model": "claude-fable-5-2", "ad": "Claude Fable 5.2", "efor": "medium"},
+    "gpt":      {"saglayici": "openai",    "model": "gpt-6-astra",      "ad": "GPT-6 Astra"},
+    "deepseek": {"saglayici": "deepseek",  "model": "deepseek-v4-pro",  "ad": "DeepSeek V4 Pro"}
+  },
+  "kurul": {
+    "gunluk_en_fazla_toplanti": 6,
+    "en_dusuk_guven": 0.6,
+    "veto_ciddiyet_esigi": 0.6,
+    "ayni_firsat_bekleme_saat": 3,
+    "en_uzun_gecerlilik_dk": 60,
+    "model_zaman_asimi_sn": 240
+  },
+  "golge_hesap": {"baslangic": 100.0}
+}
