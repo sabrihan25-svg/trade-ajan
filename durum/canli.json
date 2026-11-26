@@ -1,13 +1,12 @@
 {
- "guncelleme": "2026-11-26T20:05:08.215819+00:00",
+ "guncelleme": "2026-11-26T20:08:22.694623+00:00",
  "rapor": [
-  "Takvim alinamadi: https://nfs.faireconomy.media/ff_calendar_thisweek.json: HTTP 429",
-  "Islem yok: takvim okunamadi (haber saatleri bilinmeden islem acilmaz)"
+  "Firsat yok, kurul toplanmadi."
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0975,
+   "fiyat": 1.0973,
    "trend": null,
    "h1": {
     "ema50": 1.096699,
@@ -169,7 +168,7 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3109,
+   "fiyat": 1.3108,
    "trend": null,
    "h1": {
     "ema50": 1.310062,
