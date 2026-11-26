@@ -38,7 +38,7 @@ jobs:
           for i in $(seq 1 9); do
             echo "----- Gecis $i  $(date -u '+%Y-%m-%d %H:%M') UTC -----"
             python -m beyin.ana || echo "Gecis hatasi (bir sonraki geciste tekrar denenecek)"
-            git add durum sinyaller
+            git add durum sinyaller DURUM.md
             if ! git diff --cached --quiet; then
               git commit -q -m "beyin: $(date -u '+%Y-%m-%d %H:%M') UTC"
               git pull -q --rebase --autostash origin main && git push -q origin HEAD:main || echo "Gonderme hatasi"

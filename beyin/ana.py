@@ -73,6 +73,41 @@ class Veri:
         return veri.takvim()
 
 
+def ozet_yaz(durum, rapor, an):
+    """Telefondan bile okunabilen basit durum sayfasi: DURUM.md"""
+    g, k = durum["golge"], durum["kurul"]
+    tr = an + dt.timedelta(hours=3)
+    s = [f"# Ajan durumu", "", f"Son kontrol: **{tr.strftime('%d.%m.%Y %H:%M')}** (Turkiye saati)", "",
+         "## Son kontrolde ne oldu", ""]
+    s += [f"- {r}" for r in rapor] or ["- (kayit yok)"]
+    s += ["", "## Golge (kagit) hesap", "",
+          f"- Bakiye: **{g['bakiye']:.2f} $** (baslangic {g['baslangic']:.0f} $, olum cizgisi {g['baslangic'] * 0.7:.0f} $)",
+          f"- Durum: {'OLDU - ajan kalici durdu' if g.get('olu') else 'hayatta'}",
+          f"- Art arda zarar: {g.get('ardisik_zarar', 0)}"]
+    a = g.get("acik_islem")
+    if a:
+        s.append(f"- Acik islem: {a['sembol']} {a['yon']} giris {a['giris']:.5g}, stop {a['stop']:.5g}, hedef {a['hedef']:.5g}")
+    else:
+        s.append("- Acik islem: yok")
+    s += ["", f"## Kurul", "", f"- Bugun toplanan: {k.get('bugun', 0)} / 6", f"- Toplam toplanti: {k.get('toplam', 0)}"]
+    aktif = json_oku(yol("sinyaller", "sinyal.json"), {})
+    if aktif:
+        s.append(f"- Son sinyal: {aktif['sembol']} {aktif['yon']} ({aktif['olusturma'][:16]} UTC)")
+    s += ["", "## Model karnesi", "", "| Model | Toplanti | Long | Short | Bekle | Cevapsiz | Kazanan | Kaybeden | Toplam R |",
+          "|---|---|---|---|---|---|---|---|---|"]
+    for ad, v in durum["karne"].items():
+        s.append(f"| {ad} | {v['toplanti']} | {v['long']} | {v['short']} | {v['bekle']} | {v['cevapsiz']} | "
+                 f"{v['kazanan']} | {v['kaybeden']} | {v['toplam_R']} |")
+    s += ["", "## Son golge islemler", ""]
+    for i in reversed(g.get("gecmis", [])[-10:]):
+        s.append(f"- {i['kapanis'][:16]} {i['sembol']} {i['yon']}: {i['sonuc']} ({i['sonuc_r']}R, {i['tutar']:+.2f} $)")
+    if not g.get("gecmis"):
+        s.append("- henuz yok")
+    s += ["", "Kurul kayitlari: [durum/kurullar](durum/kurullar)"]
+    with open(yol("DURUM.md"), "w", encoding="utf-8") as f:
+        f.write("\n".join(s) + "\n")
+
+
 def calistir(an=None, kaynak=None, sor=modeller.sor):
     ayar = json_oku(yol("config", "ayarlar.json"), None)
     durum = json_oku(yol("durum", "durum.json"), None) or varsayilan_durum(ayar)
@@ -120,6 +155,7 @@ def calistir(an=None, kaynak=None, sor=modeller.sor):
 
     def bitir():
         json_yaz(yol("durum", "durum.json"), durum)
+        ozet_yaz(durum, rapor, an)
         return rapor
 
     # 3) Hayatta kalma kurallari
