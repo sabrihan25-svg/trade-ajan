@@ -1,7 +1,11 @@
 {
- "guncelleme": "2026-11-26T20:58:31.189267+00:00",
+ "guncelleme": "2026-11-26T21:01:33.534987+00:00",
  "rapor": [
-  "Firsat yok, kurul toplanmadi."
+  "FIRSAT: USDJPY long - 1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu. Kurul toplaniyor.",
+  "  claude: wait guven=0.70 stop=%0.0 hedef=%0.0 - Şükran Günü tatili ve rollover saatinde likidite çok düşük, spread ATR'nin %40'ı ve fiyat EMA'lar etrafında yatay sıkışmış. Ayrıca 160 müdahale riski ve Tokyo TÜFE öncesi net bir avantaj yok.",
+  "  gpt: wait guven=0.90 stop=%0.0 hedef=%0.0 - Saatlik yükseliş eğilimine rağmen 15 dakikalık toparlanma zayıf; fiyat 159,338 direnci altında ve haberler net yön teyidi sağlamıyor. Spreadin 15 dakikalık ATR'nin yaklaşık %40'ına ulaşması ve ABD tatilindeki düşük likidite riski nedeniyle beklemek daha uygun.",
+  "  deepseek: wait guven=0.30 stop=%0.0 hedef=%0.0 - 15 dakikalık toparlanma zayıf ve RSI nötr; 1 saatlik trend güçlü değil. Yaklaşan Tokyo TÜFE verisi ve tatil likiditesi riski nedeniyle beklemek daha uygun.",
+  "KARAR: islem yok: uc model de 'bekle' dedi"
  ],
  "tarama": [
   {
@@ -9,20 +13,19 @@
    "fiyat": 1.0973,
    "trend": null,
    "h1": {
-    "ema50": 1.096698,
-    "ema200": 1.098794,
-    "rsi": 52.8,
-    "atr": 0.000784
+    "ema50": 1.096718,
+    "ema200": 1.098778,
+    "rsi": 50.3,
+    "atr": 0.000745
    },
    "m15": {
-    "ema50": 1.097501,
-    "rsi": 48.0,
+    "ema50": 1.097489,
+    "rsi": 40.0,
     "atr": 0.000232,
     "tepe": 1.097815,
     "dip": 1.097213
    },
    "kapanislar": [
-    1.096371,
     1.096732,
     1.096732,
     1.096611,
@@ -81,29 +84,29 @@
     1.097454,
     1.097454,
     1.097454,
-    1.097454
+    1.097454,
+    1.097213
    ],
    "firsat": null
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.265,
+   "fiyat": 159.278,
    "trend": "yukari",
    "h1": {
-    "ema50": 159.205261,
-    "ema200": 159.185055,
-    "rsi": 53.1,
-    "atr": 0.113178
+    "ema50": 159.207957,
+    "ema200": 159.18594,
+    "rsi": 53.8,
+    "atr": 0.10738
    },
    "m15": {
-    "ema50": 159.247622,
-    "rsi": 50.9,
-    "atr": 0.030765,
+    "ema50": 159.248657,
+    "rsi": 53.4,
+    "atr": 0.030282,
     "tepe": 159.337997,
-    "dip": 159.233994
+    "dip": 159.25
    },
    "kapanislar": [
-    159.156006,
     159.134003,
     159.162003,
     159.212997,
@@ -162,29 +165,33 @@
     159.264008,
     159.259995,
     159.261002,
-    159.266998
+    159.266998,
+    159.274002
    ],
-   "firsat": null
+   "firsat": {
+    "tur": "geri_cekilme_bitti",
+    "yon": "long",
+    "aciklama": "1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu"
+   }
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3107,
+   "fiyat": 1.3108,
    "trend": null,
    "h1": {
-    "ema50": 1.310061,
-    "ema200": 1.313538,
-    "rsi": 52.6,
-    "atr": 0.001055
+    "ema50": 1.310083,
+    "ema200": 1.313509,
+    "rsi": 50.8,
+    "atr": 0.001004
    },
    "m15": {
-    "ema50": 1.31077,
-    "rsi": 50.4,
-    "atr": 0.000324,
+    "ema50": 1.310765,
+    "rsi": 47.3,
+    "atr": 0.000316,
     "tepe": 1.311493,
-    "dip": 1.310341
+    "dip": 1.310376
    },
    "kapanislar": [
-    1.310221,
     1.310376,
     1.310187,
     1.310015,
@@ -243,7 +250,8 @@
     1.310874,
     1.310753,
     1.310908,
-    1.310805
+    1.310805,
+    1.310633
    ],
    "firsat": null
   }
@@ -258,36 +266,36 @@
   "gecmis": []
  },
  "kurul": {
-  "bugun": 1,
-  "toplam": 1,
+  "bugun": 2,
+  "toplam": 2,
   "sinir": 6
  },
  "karne": {
   "claude": {
-   "toplanti": 1,
+   "toplanti": 2,
    "long": 0,
    "short": 0,
-   "bekle": 1,
+   "bekle": 2,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 1,
+   "toplanti": 2,
    "long": 0,
    "short": 0,
-   "bekle": 1,
+   "bekle": 2,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 1,
+   "toplanti": 2,
    "long": 1,
    "short": 0,
-   "bekle": 0,
+   "bekle": 1,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
@@ -330,6 +338,42 @@
     }
    },
    "sonuc": "islem yok: modeller ayni yonde degil: claude=wait, gpt=wait, deepseek=long"
+  },
+  {
+   "zaman": "2026-11-26T21:01:33.534987+00:00",
+   "sembol": "USDJPY",
+   "firsat": "geri_cekilme_bitti",
+   "kod_yonu": "long",
+   "oylar": {
+    "claude": {
+     "yon": "wait",
+     "guven": 0.7,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 30,
+     "gerekce": "Şükran Günü tatili ve rollover saatinde likidite çok düşük, spread ATR'nin %40'ı ve fiyat EMA'lar etrafında yatay sıkışmış. Ayrıca 160 müdahale riski ve Tokyo TÜFE öncesi net bir avantaj yok.",
+     "hizmet_eden_model": "claude-fable-5-2"
+    },
+    "gpt": {
+     "yon": "wait",
+     "guven": 0.9,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 30,
+     "gerekce": "Saatlik yükseliş eğilimine rağmen 15 dakikalık toparlanma zayıf; fiyat 159,338 direnci altında ve haberler net yön teyidi sağlamıyor. Spreadin 15 dakikalık ATR'nin yaklaşık %40'ına ulaşması ve ABD tatilindeki düşük likidite riski nedeniyle beklemek daha uygun.",
+     "hizmet_eden_model": "gpt-6-astra"
+    },
+    "deepseek": {
+     "yon": "wait",
+     "guven": 0.3,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 60,
+     "gerekce": "15 dakikalık toparlanma zayıf ve RSI nötr; 1 saatlik trend güçlü değil. Yaklaşan Tokyo TÜFE verisi ve tatil likiditesi riski nedeniyle beklemek daha uygun.",
+     "hizmet_eden_model": "deepseek-v4-pro"
+    }
+   },
+   "sonuc": "islem yok: uc model de 'bekle' dedi"
   }
  ],
  "aktif_sinyal": null,
