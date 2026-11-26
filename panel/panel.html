@@ -369,7 +369,7 @@ async function yokla(){
     sonVeri = v; sonGuncelleme = new Date(v.guncelleme);
     if (yeni) ciz(v);
   } catch (e) {
-    akisEkle(new Date().toLocaleTimeString("tr-TR"), "Bağlantı hatası: veri alınamadı, tekrar denenecek.", "k");
+    akisEkle(new Date().toLocaleTimeString("tr-TR", {timeZone: "Europe/Istanbul"}), "Bağlantı hatası: veri alınamadı, tekrar denenecek.", "k");
   }
 }
 
@@ -415,7 +415,7 @@ setInterval(() => {
   $("sayac").textContent = "sonraki veri kontrolü " + Math.max(0, Math.round((sonrakiYoklama - Date.now()) / 1000)) + " sn · beyin ~3 dk'da bir tarar";
 }, 1000);
 
-akisEkle(new Date().toLocaleTimeString("tr-TR"), "Komuta merkezi başlatıldı. Beyne bağlanılıyor…", "y");
+akisEkle(new Date().toLocaleTimeString("tr-TR", {timeZone: "Europe/Istanbul"}), "Komuta merkezi başlatıldı. Beyne bağlanılıyor…", "y");
 yokla(); setInterval(yokla, YOKLAMA_SN * 1000);
 </script>
 </body>
