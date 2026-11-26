@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRADE AJANI // Komuta Merkezi</title>
+<style>
+:root{
+  --bg:#020805; --panel:rgba(4,20,12,.78); --line:rgba(0,255,136,.22); --g:#00ff88; --g2:#7dffbf;
+  --dim:#3f8f68; --txt:#c9ffe4; --red:#ff3b5c; --amber:#ffb020; --cyan:#33e1ff; --violet:#b48cff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font:13px/1.45 "Cascadia Mono","Consolas","SFMono-Regular",monospace;overflow-x:hidden}
+#yagmur{position:fixed;inset:0;z-index:0;opacity:.22}
+.tarama-cizgisi{position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+main{position:relative;z-index:2;max-width:1500px;margin:0 auto;padding:14px 16px 24px;display:grid;gap:12px}
+header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;border:1px solid var(--line);background:var(--panel);padding:10px 14px;border-radius:6px}
+.logo{font-size:18px;font-weight:700;letter-spacing:3px;color:var(--g);text-shadow:0 0 12px rgba(0,255,136,.7)}
+.logo small{color:var(--dim);font-weight:400;letter-spacing:1px}
+.bosluk{flex:1}
+.pil{padding:3px 10px;border:1px solid currentColor;border-radius:20px;font-size:11px;letter-spacing:1px;white-space:nowrap}
+.pil.ok{color:var(--g)} .pil.uyari{color:var(--amber)} .pil.kot{color:var(--red)}
+.nabiz{display:inline-block;width:8px;height:8px;border-radius:50%;background:currentColor;margin-right:6px;box-shadow:0 0 8px currentColor;animation:nabiz 1.4s infinite}
+@keyframes nabiz{0%,100%{opacity:1}50%{opacity:.25}}
+.saat{font-size:16px;color:var(--g2)}
+.izgara{display:grid;gap:12px}
+.uc{grid-template-columns:repeat(3,1fr)}
+.alt{grid-template-columns:1.1fr 1.2fr .9fr}
+@media(max-width:1000px){.uc,.alt{grid-template-columns:1fr}}
+.kutu{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:12px 14px;position:relative;overflow:hidden;backdrop-filter:blur(2px)}
+.kutu h2{margin:0 0 10px;font-size:11px;letter-spacing:3px;color:var(--dim);font-weight:400;display:flex;justify-content:space-between}
+.kutu h2 b{color:var(--g);font-weight:400}
+.sweep::after{content:"";position:absolute;top:0;bottom:0;width:30%;left:-30%;background:linear-gradient(90deg,transparent,rgba(0,255,136,.07),transparent);animation:sweep 3.5s linear infinite}
+@keyframes sweep{to{left:130%}}
+.sembol{display:flex;justify-content:space-between;align-items:baseline}
+.sembol .ad{font-size:20px;color:#fff;letter-spacing:2px}
+.sembol .fiyat{font-size:20px;color:var(--g)}
+.trend{font-size:12px;margin:2px 0 6px}
+.yukari{color:var(--g)} .asagi{color:var(--red)} .yatay{color:var(--amber)}
+canvas.spark{width:100%;height:70px;display:block}
+.metrik{display:grid;grid-template-columns:70px 1fr 44px;gap:6px;align-items:center;font-size:11px;color:var(--dim);margin-top:5px}
+.bar{height:6px;background:rgba(0,255,136,.1);border-radius:3px;overflow:hidden;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--g);box-shadow:0 0 8px var(--g);transition:width 1s}
+.bar.rsi::before,.bar.rsi::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.3)}
+.bar.rsi::before{left:30%} .bar.rsi::after{left:70%}
+.durum-satiri{margin-top:8px;font-size:12px;min-height:18px}
+.firsat{color:#000;background:var(--g);padding:2px 8px;border-radius:3px;animation:yanip 1s infinite;font-weight:700}
+@keyframes yanip{50%{opacity:.45}}
+.ajan{display:flex;flex-direction:column;gap:6px;min-height:190px}
+.ajan .ust{display:flex;align-items:center;gap:10px}
+.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700;border:1px solid currentColor;box-shadow:0 0 14px currentColor inset}
+.ajan .isim{font-size:14px;color:#fff;letter-spacing:1px}
+.ajan .alt-isim{font-size:10px;color:var(--dim)}
+.oy{font-size:22px;letter-spacing:3px}
+.oy.long{color:var(--g)} .oy.short{color:var(--red)} .oy.wait{color:var(--amber)} .oy.yok{color:var(--dim)}
+.gerekce{color:var(--txt);opacity:.9;font-size:12px;min-height:54px}
+.imlec::after{content:"▌";animation:yanip .8s infinite;color:var(--g)}
+.rozet{position:absolute;top:10px;right:12px;font-size:10px;color:var(--violet);border:1px solid var(--violet);padding:1px 6px;border-radius:3px}
+.karar{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:12px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.karar .etiket{color:var(--dim);letter-spacing:3px;font-size:11px}
+.karar .metin{font-size:15px;color:#fff;flex:1}
+.karar.sinyal{border-color:var(--g);box-shadow:0 0 24px rgba(0,255,136,.25)}
+.buyuk{font-size:34px;color:var(--g);text-shadow:0 0 14px rgba(0,255,136,.5)}
+.kucuk{font-size:11px;color:var(--dim)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{color:var(--dim);font-weight:400;text-align:right;padding:4px 6px;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:1px}
+td{text-align:right;padding:5px 6px;border-bottom:1px solid rgba(0,255,136,.07)}
+th:first-child,td:first-child{text-align:left}
+.kural{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed rgba(0,255,136,.1);font-size:12px}
+.kural span:last-child{color:var(--g)}
+.kural.kirmizi span:last-child{color:var(--red)}
+.kural.sari span:last-child{color:var(--amber)}
+#akis{height:230px;overflow:auto;font-size:12px;white-space:pre-wrap}
+#akis div{padding:1px 0}
+#akis .z{color:var(--dim)}
+#akis .y{color:var(--g)} #akis .k{color:var(--red)} #akis .s{color:var(--amber)} #akis .m{color:var(--cyan)}
+.olum{position:relative;height:10px;border-radius:5px;background:linear-gradient(90deg,rgba(255,59,92,.55) 0 70%,rgba(0,255,136,.18) 70%);margin:8px 0 4px}
+.olum i{position:absolute;top:-4px;width:3px;height:18px;background:#fff;box-shadow:0 0 8px #fff;transition:left 1s}
+footer{color:var(--dim);font-size:11px;text-align:center}
+a{color:var(--g)}
+</style>
+</head>
+<body>
+<canvas id="yagmur"></canvas>
+<div class="tarama-cizgisi"></div>
+<main>
+  <header>
+    <div class="logo">TRADE AJANI <small>// KOMUTA MERKEZİ</small></div>
+    <span id="beyinPil" class="pil uyari"><span class="nabiz"></span>BAĞLANIYOR</span>
+    <span id="piyasaPil" class="pil"></span>
+    <div class="bosluk"></div>
+    <span class="kucuk" id="tazelik">—</span>
+    <span class="saat" id="saat">--:--:--</span>
+  </header>
+
+  <section class="izgara uc" id="semboller"></section>
+
+  <div class="karar" id="kararKutu">
+    <span class="etiket">KURUL</span>
+    <span class="metin" id="kararMetin">Veri bekleniyor…</span>
+    <span class="kucuk" id="kararZaman"></span>
+  </div>
+
+  <section class="izgara uc" id="ajanlar"></section>
+
+  <section class="izgara alt">
+    <div class="kutu">
+      <h2>GÖLGE HESAP <b>KÂĞIT · 100 $</b></h2>
+      <div class="buyuk" id="bakiye">—</div>
+      <div class="kucuk" id="bakiyeAlt">—</div>
+      <div class="olum" title="Kırmızı bölge: ölüm çizgisi (%70)"><i id="olumIsaret" style="left:100%"></i></div>
+      <div class="kucuk">kırmızı bölge = ölüm çizgisinin altı (%70) · sağ uç = başlangıç (%100)</div>
+      <canvas class="spark" id="ozsermaye" style="height:80px;margin-top:10px"></canvas>
+      <div class="durum-satiri" id="acikIslem"></div>
+    </div>
+    <div class="kutu">
+      <h2>MODEL KARNESİ <b>HAYALET İŞLEMLER</b></h2>
+      <table><thead><tr><th>MODEL</th><th>TOPL.</th><th>LONG</th><th>SHORT</th><th>BEKLE</th><th>CEVAPSIZ</th><th>K / Z</th><th>TOPLAM R</th></tr></thead>
+      <tbody id="karne"></tbody></table>
+      <h2 style="margin-top:14px">SON KURULLAR</h2>
+      <div id="kurulGecmis" class="kucuk"></div>
+    </div>
+    <div class="kutu">
+      <h2>HAYATTA KALMA <b>KODDA KİLİTLİ</b></h2>
+      <div id="kurallar"></div>
+      <h2 style="margin-top:14px">YAKLAŞAN ÖNEMLİ VERİ</h2>
+      <div id="haberler" class="kucuk"></div>
+    </div>
+  </section>
+
+  <section class="kutu sweep">
+    <h2>CANLI AKIŞ <b id="sayac"></b></h2>
+    <div id="akis"></div>
+  </section>
+
+  <footer>Veri: herkese açık depo <a id="depoLink" target="_blank" rel="noopener"></a> · Gerçek hesap bilgisi burada gösterilmez · Gerçek işlemler MT5'in "İşlem" sekmesinde görünür</footer>
+</main>
+
+<script>
+"use strict";
+const DEPO = "sabrihan25-svg/trade-ajan";
+const YOKLAMA_SN = 75;               // GitHub'in sifresiz limiti saatte 60 istek
+const MODELLER = {
+  claude:   {ad: "CLAUDE",   alt: "Fable 5.2",  renk: "#ff9e5e", harf: "C"},
+  gpt:      {ad: "GPT",      alt: "6 Astra",    renk: "#33e1ff", harf: "G"},
+  deepseek: {ad: "DEEPSEEK", alt: "V4 Pro",     renk: "#b48cff", harf: "D"},
+};
+const $ = id => document.getElementById(id);
+document.getElementById("depoLink").href = "https://github.com/" + DEPO;
+document.getElementById("depoLink").textContent = DEPO;
+
+/* ---------------- Matrix yagmuru ---------------- */
+(function yagmur(){
+  const c = $("yagmur"), x = c.getContext("2d");
+  const harfler = "アイウエオカキクケコサシスセソ0123456789ABCDEF$€¥£+-%".split("");
+  let sutunlar, boy = 16;
+  function boyutla(){ c.width = innerWidth; c.height = innerHeight; sutunlar = Array(Math.ceil(c.width / boy)).fill(0).map(() => Math.random() * -50); }
+  addEventListener("resize", boyutla); boyutla();
+  setInterval(() => {
+    x.fillStyle = "rgba(2,8,5,.12)"; x.fillRect(0, 0, c.width, c.height);
+    x.font = boy + "px monospace";
+    sutunlar.forEach((y, i) => {
+      x.fillStyle = Math.random() > .975 ? "#d7ffe9" : "#00ff88";
+      x.fillText(harfler[Math.random() * harfler.length | 0], i * boy, y * boy);
+      sutunlar[i] = (y * boy > c.height && Math.random() > .975) ? 0 : y + 1;
+    });
+  }, 55);
+})();
+
+/* ---------------- Yardimcilar ---------------- */
+function el(etiket, sinif, metin){ const e = document.createElement(etiket); if (sinif) e.className = sinif; if (metin !== undefined) e.textContent = metin; return e; }
+function trSaat(iso){ return new Date(iso).toLocaleString("tr-TR", {timeZone: "Europe/Istanbul", hour: "2-digit", minute: "2-digit", day: "2-digit", month: "2-digit"}); }
+function sayi(x, n){ return (x === null || x === undefined) ? "—" : Number(x).toFixed(n); }
+function basamak(f){ return f > 50 ? 3 : 5; }
+
+function spark(canvas, degerler, renk, cizgi){
+  const dpr = devicePixelRatio || 1, w = canvas.clientWidth, h = canvas.clientHeight;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  const x = canvas.getContext("2d"); x.scale(dpr, dpr); x.clearRect(0, 0, w, h);
+  const v = degerler.filter(d => d !== null && d !== undefined);
+  if (v.length < 2) return;
+  let min = Math.min(...v), max = Math.max(...v);
+  if (cizgi !== undefined) { min = Math.min(min, cizgi); max = Math.max(max, cizgi); }
+  const pay = (max - min) * .1 || 1; min -= pay; max += pay;
+  const px = i => i / (v.length - 1) * w, py = d => h - (d - min) / (max - min) * h;
+  if (cizgi !== undefined) { x.strokeStyle = "rgba(255,59,92,.6)"; x.setLineDash([4, 4]); x.beginPath(); x.moveTo(0, py(cizgi)); x.lineTo(w, py(cizgi)); x.stroke(); x.setLineDash([]); }
+  const grad = x.createLinearGradient(0, 0, 0, h); grad.addColorStop(0, renk + "55"); grad.addColorStop(1, renk + "00");
+  x.beginPath(); v.forEach((d, i) => i ? x.lineTo(px(i), py(d)) : x.moveTo(px(i), py(d)));
+  x.lineTo(w, h); x.lineTo(0, h); x.closePath(); x.fillStyle = grad; x.fill();
+  x.beginPath(); v.forEach((d, i) => i ? x.lineTo(px(i), py(d)) : x.moveTo(px(i), py(d)));
+  x.strokeStyle = renk; x.lineWidth = 1.6; x.shadowColor = renk; x.shadowBlur = 8; x.stroke();
+  x.beginPath(); x.arc(px(v.length - 1), py(v[v.length - 1]), 3, 0, 7); x.fillStyle = "#fff"; x.fill();
+}
+
+const yaziKuyrugu = new WeakMap();
+function daktilo(hedef, metin, hiz){
+  if (hedef.dataset.tam === metin) return;
+  hedef.dataset.tam = metin; hedef.textContent = ""; hedef.classList.add("imlec");
+  const sira = (yaziKuyrugu.get(hedef) || 0) + 1; yaziKuyrugu.set(hedef, sira);
+  let i = 0;
+  (function adim(){
+    if (yaziKuyrugu.get(hedef) !== sira) return;
+    hedef.textContent = metin.slice(0, ++i);
+    if (i < metin.length) setTimeout(adim, hiz || 14); else hedef.classList.remove("imlec");
+  })();
+}
+
+/* ---------------- Canli akis (terminal) ---------------- */
+const gorulen = new Set(), akisKuyrugu = [];
+function akisEkle(zaman, metin, sinif){
+  const anahtar = zaman + "|" + metin;
+  if (gorulen.has(anahtar)) return; gorulen.add(anahtar);
+  akisKuyrugu.push([zaman, metin, sinif]);
+}
+setInterval(() => {
+  if (!akisKuyrugu.length) return;
+  const [zaman, metin, sinif] = akisKuyrugu.shift();
+  const satir = el("div");
+  satir.append(el("span", "z", "[" + zaman + "] "));
+  const m = el("span", sinif || ""); satir.append(m);
+  $("akis").append(satir); daktilo(m, metin, 8);
+  while ($("akis").children.length > 300) $("akis").firstChild.remove();
+  $("akis").scrollTop = 1e9;
+}, 450);
+function satirSinifi(s){
+  if (/SINYAL|TAMAM|kar /i.test(s)) return "y";
+  if (/OLUM|HATA|zarar|veto|CEVAP YOK/i.test(s)) return "k";
+  if (/Islem yok|bekle|sinir|mola|haber/i.test(s)) return "s";
+  if (/claude|gpt|deepseek|FIRSAT|Kurul/i.test(s)) return "m";
+  return "";
+}
+
+/* ---------------- Ciziciler ---------------- */
+function sembolleriCiz(tarama){
+  const kap = $("semboller");
+  tarama.forEach(t => {
+    let k = document.getElementById("s-" + t.sembol);
+    if (!k) {
+      k = el("div", "kutu sweep"); k.id = "s-" + t.sembol;
+      k.innerHTML = `<h2>TARAMA <b>1S TREND + 15DK GİRİŞ</b></h2>
+        <div class="sembol"><span class="ad"></span><span class="fiyat"></span></div>
+        <div class="trend"></div><canvas class="spark"></canvas>
+        <div class="metrik"><span>RSI 1S</span><div class="bar rsi"><i></i></div><span class="v1"></span></div>
+        <div class="metrik"><span>RSI 15DK</span><div class="bar rsi"><i></i></div><span class="v2"></span></div>
+        <div class="metrik"><span>ATR 15DK</span><div class="bar"><i></i></div><span class="v3"></span></div>
+        <div class="durum-satiri"></div>`;
+      kap.append(k);
+    }
+    k.querySelector(".ad").textContent = t.sembol;
+    if (t.hata) { k.querySelector(".durum-satiri").textContent = "Veri alınamadı"; return; }
+    const d = basamak(t.fiyat);
+    k.querySelector(".fiyat").textContent = sayi(t.fiyat, d);
+    const tr = k.querySelector(".trend");
+    tr.className = "trend " + (t.trend === "yukari" ? "yukari" : t.trend === "asagi" ? "asagi" : "yatay");
+    tr.textContent = t.trend === "yukari" ? "▲ 1 SAATLİK TREND YUKARI (EMA50 > EMA200)" : t.trend === "asagi" ? "▼ 1 SAATLİK TREND AŞAĞI (EMA50 < EMA200)" : "◆ NET TREND YOK — beklenir";
+    spark(k.querySelector("canvas"), t.kapanislar, t.trend === "asagi" ? "#ff3b5c" : "#00ff88");
+    const barlar = k.querySelectorAll(".bar i");
+    barlar[0].style.width = (t.h1.rsi || 0) + "%"; k.querySelector(".v1").textContent = sayi(t.h1.rsi, 0);
+    barlar[1].style.width = (t.m15.rsi || 0) + "%"; k.querySelector(".v2").textContent = sayi(t.m15.rsi, 0);
+    const atrOran = t.h1.atr ? Math.min(100, t.m15.atr / t.h1.atr * 100) : 0;
+    barlar[2].style.width = atrOran + "%"; k.querySelector(".v3").textContent = sayi(t.m15.atr * (d === 3 ? 100 : 10000), 1);
+    const ds = k.querySelector(".durum-satiri"); ds.textContent = "";
+    if (t.firsat) { ds.append(el("span", "firsat", "FIRSAT · " + t.firsat.yon.toUpperCase())); ds.append(el("span", "", " " + t.firsat.aciklama)); }
+    else ds.textContent = "◌ Tarandı — kurulum yok, kurul toplanmıyor";
+  });
+}
+
+function ajanlariCiz(kurul){
+  const kap = $("ajanlar");
+  Object.entries(MODELLER).forEach(([anahtar, m]) => {
+    let k = document.getElementById("a-" + anahtar);
+    if (!k) {
+      k = el("div", "kutu ajan"); k.id = "a-" + anahtar;
+      k.innerHTML = `<div class="ust"><div class="avatar"></div><div><div class="isim"></div><div class="alt-isim"></div></div></div>
+        <div class="oy yok">BEKLEMEDE</div><div class="metrik"><span>GÜVEN</span><div class="bar"><i></i></div><span class="gv"></span></div>
+        <div class="kucuk sh"></div><div class="gerekce"></div>`;
+      const av = k.querySelector(".avatar"); av.textContent = m.harf; av.style.color = m.renk;
+      k.querySelector(".isim").textContent = m.ad; k.querySelector(".isim").style.color = m.renk;
+      k.querySelector(".alt-isim").textContent = m.alt;
+      kap.append(k);
+    }
+    const eski = k.querySelector(".rozet"); if (eski) eski.remove();
+    const oyKutu = k.querySelector(".oy"), ger = k.querySelector(".gerekce");
+    const oy = kurul && kurul.oylar ? kurul.oylar[anahtar] : null;
+    if (!oy) { oyKutu.className = "oy yok"; oyKutu.textContent = "BEKLEMEDE"; daktilo(ger, "Kurul toplanmadı. Kod bir fırsat bulduğunda bu ajan veri paketini görüp bağımsız oy verecek.", 10); return; }
+    if (oy.hata) { oyKutu.className = "oy yok"; oyKutu.textContent = "CEVAP YOK"; daktilo(ger, oy.hata, 10); return; }
+    oyKutu.className = "oy " + oy.yon; oyKutu.textContent = {long: "▲ LONG", short: "▼ SHORT", wait: "■ BEKLE"}[oy.yon];
+    k.querySelector(".bar i").style.width = (oy.guven * 100) + "%"; k.querySelector(".bar i").style.background = m.renk;
+    k.querySelector(".gv").textContent = oy.guven.toFixed(2);
+    k.querySelector(".sh").textContent = oy.yon === "wait" ? "" : `stop %${oy.stop_yuzde} · hedef %${oy.hedef_yuzde} · ${oy.gecerlilik_dk} dk`;
+    daktilo(ger, "› " + oy.gerekce, 16);
+    const av = kurul.seytanin_avukati;
+    if (av && av.model === anahtar) {
+      const r = el("span", "rozet", "ŞEYTANIN AVUKATI" + (av.hata ? " · cevap yok" : av.veto ? ` · VETO ${av.ciddiyet}` : " · onay"));
+      k.append(r);
+    }
+  });
+}
+
+function hesabiCiz(g){
+  $("bakiye").textContent = g.bakiye.toFixed(2) + " $";
+  const fark = g.bakiye - g.baslangic;
+  $("bakiyeAlt").textContent = (fark >= 0 ? "+" : "") + fark.toFixed(2) + " $ · " + (g.olu ? "ÖLDÜ — ajan kalıcı durdu" : "hayatta") + " · art arda zarar: " + g.ardisik_zarar;
+  const oran = Math.max(0, Math.min(1.3, g.bakiye / g.baslangic));
+  $("olumIsaret").style.left = Math.min(99.5, oran * 100) + "%";
+  const egri = [g.baslangic].concat(g.gecmis.map(i => i.bakiye));
+  spark($("ozsermaye"), egri, "#00ff88", g.baslangic * .7);
+  const a = g.acik_islem, ak = $("acikIslem");
+  ak.textContent = a ? `● AÇIK KÂĞIT İŞLEM: ${a.sembol} ${a.yon.toUpperCase()} · giriş ${a.giris.toFixed(5)} · stop ${a.stop.toFixed(5)} · hedef ${a.hedef.toFixed(5)}` : "○ Açık kâğıt işlem yok";
+  ak.style.color = a ? "var(--g)" : "var(--dim)";
+}
+
+function karneCiz(karne){
+  const tb = $("karne"); tb.textContent = "";
+  Object.entries(MODELLER).forEach(([anahtar, m]) => {
+    const v = karne[anahtar] || {toplanti: 0, long: 0, short: 0, bekle: 0, cevapsiz: 0, kazanan: 0, kaybeden: 0, toplam_R: 0};
+    const tr = el("tr");
+    const ad = el("td", "", m.ad); ad.style.color = m.renk; tr.append(ad);
+    [v.toplanti, v.long, v.short, v.bekle, v.cevapsiz, v.kazanan + " / " + v.kaybeden].forEach(x => tr.append(el("td", "", x)));
+    const r = el("td", "", (v.toplam_R >= 0 ? "+" : "") + Number(v.toplam_R).toFixed(2));
+    r.style.color = v.toplam_R > 0 ? "var(--g)" : v.toplam_R < 0 ? "var(--red)" : ""; tr.append(r);
+    tb.append(tr);
+  });
+}
+
+function kurallariCiz(v){
+  const g = v.golge, k = $("kurallar"); k.textContent = "";
+  const satir = (ad, deger, sinif) => { const d = el("div", "kural " + (sinif || "")); d.append(el("span", "", ad), el("span", "", deger)); k.append(d); };
+  satir("İşlem başına risk", "~%1 (en fazla %1,5)");
+  satir("Ölüm çizgisi", g.olu ? "AŞILDI" : (g.baslangic * .7).toFixed(0) + " $", g.olu ? "kirmizi" : "");
+  satir("Günlük / haftalık zarar sınırı", "%3 / %6");
+  satir("Aynı anda tek işlem", g.acik_islem ? "DOLU" : "boş", g.acik_islem ? "sari" : "");
+  satir("Art arda 3 zarar → 24s mola", g.mola_bitis && new Date(g.mola_bitis) > new Date() ? "MOLADA" : g.ardisik_zarar + " / 3", g.mola_bitis && new Date(g.mola_bitis) > new Date() ? "kirmizi" : "");
+  satir("Hedef ≥ 1,5 × stop", "kilitli");
+  satir("Günlük kurul toplantısı", v.kurul.bugun + " / " + v.kurul.sinir, v.kurul.bugun >= v.kurul.sinir ? "sari" : "");
+  satir("ABD verisi ±30 dk", "işlem yok");
+  const h = $("haberler"); h.textContent = "";
+  (v.yakin_haberler || []).forEach(o => h.append(el("div", "", trSaat(o.zaman) + " · " + o.ulke + " · " + o.olay)));
+  if (!v.yakin_haberler || !v.yakin_haberler.length) h.textContent = "Bu hafta başka önemli veri yok.";
+}
+
+function kurulGecmisiCiz(kayitlar){
+  const k = $("kurulGecmis"); k.textContent = "";
+  kayitlar.slice().reverse().forEach(r => {
+    const d = el("div", "", trSaat(r.zaman) + " · " + r.sembol + " · " + r.sonuc);
+    d.style.color = /SINYAL/.test(r.sonuc) ? "var(--g)" : ""; d.style.padding = "2px 0"; k.append(d);
+  });
+  if (!kayitlar.length) k.textContent = "Henüz kurul toplanmadı.";
+}
+
+/* ---------------- Veri ---------------- */
+let sonVeri = null, sonGuncelleme = null, sonrakiYoklama = 0;
+async function veriAl(){
+  const denemeler = [
+    ["https://api.github.com/repos/" + DEPO + "/contents/durum/canli.json?ref=main", {headers: {Accept: "application/vnd.github.raw"}}],
+    ["https://raw.githubusercontent.com/" + DEPO + "/main/durum/canli.json?t=" + Date.now(), {cache: "no-store"}],
+  ];
+  for (const [url, ayar] of denemeler) {
+    try { const r = await fetch(url, ayar); if (r.ok) return await r.json(); } catch (e) {}
+  }
+  throw new Error("veri alınamadı");
+}
+
+async function yokla(){
+  sonrakiYoklama = Date.now() + YOKLAMA_SN * 1000;
+  try {
+    const v = await veriAl();
+    const yeni = !sonVeri || sonVeri.guncelleme !== v.guncelleme;
+    sonVeri = v; sonGuncelleme = new Date(v.guncelleme);
+    if (yeni) ciz(v);
+  } catch (e) {
+    akisEkle(new Date().toLocaleTimeString("tr-TR"), "Bağlantı hatası: veri alınamadı, tekrar denenecek.", "k");
+  }
+}
+
+function ciz(v){
+  sembolleriCiz(v.tarama || []);
+  const son = (v.son_kurullar || []).slice(-1)[0];
+  ajanlariCiz(son);
+  const kk = $("kararKutu"), km = $("kararMetin");
+  if (son) {
+    km.textContent = son.sembol + " · " + son.sonuc;
+    $("kararZaman").textContent = trSaat(son.zaman);
+    kk.classList.toggle("sinyal", /SINYAL/.test(son.sonuc));
+  } else { km.textContent = "Kurul henüz toplanmadı — kod fırsat arıyor."; }
+  hesabiCiz(v.golge); karneCiz(v.karne || {}); kurallariCiz(v); kurulGecmisiCiz(v.son_kurullar || []);
+  const z = new Date(v.guncelleme).toLocaleTimeString("tr-TR", {timeZone: "Europe/Istanbul"});
+  akisEkle(z, "── Beyin taraması ──", "z");
+  (v.rapor || []).forEach(s => akisEkle(z, s, satirSinifi(s)));
+  (v.son_kurullar || []).forEach(r => {
+    const t = trSaat(r.zaman);
+    Object.entries(r.oylar || {}).forEach(([a, o]) => akisEkle(t, (MODELLER[a] ? MODELLER[a].ad : a) + (o.hata ? " → cevap yok" : ` → ${o.yon.toUpperCase()} (güven ${o.guven})`), "m"));
+    akisEkle(t, "KARAR: " + r.sonuc, /SINYAL/.test(r.sonuc) ? "y" : "s");
+  });
+}
+
+function piyasaAcik(d){
+  const g = d.getUTCDay(), s = d.getUTCHours();
+  if (g === 6) return false; if (g === 0) return s >= 22; if (g === 5) return s < 21; return true;
+}
+
+setInterval(() => {
+  const simdi = new Date();
+  $("saat").textContent = simdi.toLocaleTimeString("tr-TR", {timeZone: "Europe/Istanbul"});
+  const acik = piyasaAcik(simdi), pp = $("piyasaPil");
+  pp.className = "pil " + (acik ? "ok" : "uyari"); pp.textContent = acik ? "FOREX AÇIK" : "FOREX KAPALI";
+  const bp = $("beyinPil");
+  if (sonGuncelleme) {
+    const sn = Math.round((simdi - sonGuncelleme) / 1000);
+    $("tazelik").textContent = "son tarama " + (sn < 120 ? sn + " sn" : Math.round(sn / 60) + " dk") + " önce";
+    if (!acik) { bp.className = "pil uyari"; bp.innerHTML = '<span class="nabiz"></span>BEYİN UYKUDA (piyasa kapalı)'; }
+    else if (sn < 12 * 60) { bp.className = "pil ok"; bp.innerHTML = '<span class="nabiz"></span>BEYİN ÇEVRİMİÇİ'; }
+    else { bp.className = "pil uyari"; bp.innerHTML = '<span class="nabiz"></span>BEYİN GECİKTİ'; }
+  }
+  $("sayac").textContent = "sonraki veri kontrolü " + Math.max(0, Math.round((sonrakiYoklama - Date.now()) / 1000)) + " sn · beyin ~3 dk'da bir tarar";
+}, 1000);
+
+akisEkle(new Date().toLocaleTimeString("tr-TR"), "Komuta merkezi başlatıldı. Beyne bağlanılıyor…", "y");
+yokla(); setInterval(yokla, YOKLAMA_SN * 1000);
+</script>
+</body>
+</html>
