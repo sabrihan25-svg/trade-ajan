@@ -26,6 +26,9 @@ KONTROL_ARALIGI_SN = 60
 SEMBOL_ADLARI = {"EURUSD": "EURUSD", "USDJPY": "USDJPY", "GBPUSD": "GBPUSD"}  # sinyal adi -> kurumdaki ad
 SIHIRLI_NO = 26052611          # bu kopru tarafindan acilan islemlerin numarasi
 SAPMA_PUAN = 20                # emir fiyat sapma toleransi (puan)
+# DEMO hesapta kurum sabit bakiye veriyorsa: kopru hesabi bu bakiyeyle baslamis gibi davranir.
+# Risk, olum cizgisi ve zarar sinirlari bu sanal bakiyeye gore hesaplanir. GERCEK hesapta HIC kullanilmaz.
+DENEME_BAKIYESI = 1000.0       # kapatmak icin: None
 
 # ----------------------------------------------------------------- HAYATTA KALMA KURALLARI
 # (beyin/kurallar.py ile ayni; modeller asamaz)
@@ -165,15 +168,30 @@ def pozisyon_kapat(p, sebep):
         f"{s.comment if s else ''}")
 
 
+def deneme_modu(ai):
+    return DENEME_BAKIYESI is not None and ai.trade_mode == mt5.ACCOUNT_TRADE_MODE_DEMO
+
+
+def hesap_degerleri(ai, d):
+    """(bakiye, varlik). Deneme modunda: sanal baslangic + gercek kar/zarar."""
+    if not deneme_modu(ai):
+        return ai.balance, ai.equity
+    if "gercek_baslangic" not in d:
+        d["gercek_baslangic"] = ai.balance
+    kayma = DENEME_BAKIYESI - d["gercek_baslangic"]
+    return ai.balance + kayma, ai.equity + kayma
+
+
 # ----------------------------------------------------------------- HESAP KURALLARI
 def hesap_kurallari(ai, d, an):
     """(yeni islem izni, sebep). Gerekirse pozisyonlari kapatir. d: bu hesabin durumu."""
     if d.get("olu"):
         return False, "OLUM CIZGISI daha once asildi: kopru bu hesapta kalici olarak durdu"
+    bakiye, varlik = hesap_degerleri(ai, d)
     if "baslangic" not in d:
-        d["baslangic"] = ai.balance
-        log(f"Bu hesap icin baslangic bakiyesi kaydedildi: {ai.balance:.2f} {ai.currency}")
-    if ai.equity <= d["baslangic"] * OLUM_CIZGISI:
+        d["baslangic"] = bakiye
+        log(f"Bu hesap icin baslangic bakiyesi kaydedildi: {bakiye:.2f} {ai.currency}")
+    if varlik <= d["baslangic"] * OLUM_CIZGISI:
         d["olu"] = True
         for p in bizim_pozisyonlar():
             pozisyon_kapat(p, "olum cizgisi")
@@ -181,13 +199,13 @@ def hesap_kurallari(ai, d, an):
 
     gun = an.strftime("%Y-%m-%d")
     if d.get("gun", {}).get("tarih") != gun:
-        d["gun"] = {"tarih": gun, "varlik": ai.equity}
+        d["gun"] = {"tarih": gun, "varlik": varlik}
     hafta = an.strftime("%G-W%V")
     if d.get("hafta", {}).get("tarih") != hafta:
-        d["hafta"] = {"tarih": hafta, "varlik": ai.equity}
-    if ai.equity <= d["gun"]["varlik"] * (1 - GUNLUK_ZARAR_SINIRI):
+        d["hafta"] = {"tarih": hafta, "varlik": varlik}
+    if varlik <= d["gun"]["varlik"] * (1 - GUNLUK_ZARAR_SINIRI):
         return False, "gunluk %3 zarar siniri doldu"
-    if ai.equity <= d["hafta"]["varlik"] * (1 - HAFTALIK_ZARAR_SINIRI):
+    if varlik <= d["hafta"]["varlik"] * (1 - HAFTALIK_ZARAR_SINIRI):
         return False, "haftalik %6 zarar siniri doldu"
 
     # Art arda zarar -> mola
@@ -257,7 +275,7 @@ def lot_hesapla(ad, tip, giris, sl, bakiye):
     return lot, f"risk {risk:.2f} (%{risk / bakiye * 100:.2f})"
 
 
-def emir_hazirla(sinyal, an, yasaklar):
+def emir_hazirla(sinyal, an, yasaklar, bakiye):
     """Sinyali kurallara gore denetler. (istek, aciklama) ya da (None, sebep)."""
     ad = SEMBOL_ADLARI.get(sinyal["sembol"])
     if not ad:
@@ -311,9 +329,8 @@ def emir_hazirla(sinyal, an, yasaklar):
     if stop_m < en_az or hedef_m < en_az:
         return None, "stop/hedef kurumun en kisa mesafesinden kucuk"
 
-    ai = mt5.account_info()
     tip = mt5.ORDER_TYPE_BUY if long_ else mt5.ORDER_TYPE_SELL
-    lot, aciklama = lot_hesapla(ad, tip, giris, sl, ai.balance)
+    lot, aciklama = lot_hesapla(ad, tip, giris, sl, bakiye)
     if lot is None:
         return None, aciklama
     istek = {"action": mt5.TRADE_ACTION_DEAL, "symbol": ad, "volume": lot, "type": tip, "price": giris,
@@ -365,7 +382,7 @@ def dongu(canli):
     if ai is None:
         log("Hesap bilgisi okunamadi (MT5 acik ve giris yapili mi?)")
         return
-    anahtar = hesap_anahtari(ai)
+    anahtar = hesap_anahtari(ai) + ("-deneme" + str(int(DENEME_BAKIYESI)) if deneme_modu(ai) else "")
     d = tum.setdefault(anahtar, {})
     try:
         cuma_kapanisi(an)
@@ -379,7 +396,8 @@ def dongu(canli):
         islenen = d.setdefault("islenen_sinyaller", [])
         if sinyal["id"] in islenen:
             return
-        istek, aciklama = emir_hazirla(sinyal, an, haber_yasaklari(an))
+        bakiye, varlik = hesap_degerleri(ai, d)
+        istek, aciklama = emir_hazirla(sinyal, an, haber_yasaklari(an), bakiye)
         if istek is None:
             log(f"Sinyal {sinyal['id']} atlandi: {aciklama}")
             if aciklama == "sinyal eski":
@@ -390,8 +408,8 @@ def dongu(canli):
             log(f"Sinyal {sinyal['id']}: sunucu emri gecersiz buldu: "
                 f"{kontrol.comment if kontrol else mt5.last_error()}")
             return
-        if kontrol.margin_free < 0:
-            log(f"Sinyal {sinyal['id']}: teminat yetersiz")
+        if kontrol.margin_free < 0 or kontrol.margin > varlik:
+            log(f"Sinyal {sinyal['id']}: teminat yetersiz (gereken {kontrol.margin:.2f}, varlik {varlik:.2f})")
             return
         if not canli:
             log(f"TEST MODU - emir gonderilmedi, sunucu gecerli buldu: {aciklama}")
@@ -426,6 +444,9 @@ def main():
     ai = mt5.account_info()
     tur = {mt5.ACCOUNT_TRADE_MODE_DEMO: "DEMO", mt5.ACCOUNT_TRADE_MODE_REAL: "GERCEK"}.get(ai.trade_mode, "DIGER")
     log(f"Hesap turu: {tur} | Bakiye: {ai.balance:.2f} {ai.currency} | Kaldirac 1:{ai.leverage}")
+    if deneme_modu(ai):
+        log(f"DENEME BAKIYESI ACIK: demo hesap {DENEME_BAKIYESI:.0f} $ ile baslamis gibi islem yapilacak "
+            f"(risk, olum cizgisi ve zarar sinirlari {DENEME_BAKIYESI:.0f} $'a gore).")
     kablo_ok = kablo_testi()
     print()
     canli = False

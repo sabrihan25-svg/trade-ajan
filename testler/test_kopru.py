@@ -28,6 +28,7 @@ class KopruTest(unittest.TestCase):
         kopru.DURUM_DOSYASI = os.path.join(self.dizin, "d.json")
         kopru.LOG_DOSYASI = os.path.join(self.dizin, "log.txt")
         sahte_mt5.sifirla()
+        kopru.DENEME_BAKIYESI = None
         self.an = dt.datetime(2026, 11, 26, 14, 0, tzinfo=dt.timezone.utc)  # Persembe
         kopru.utc = lambda: self.an
         self.dosyalar = {"sinyaller/takvim.json": {"guncelleme": self.an.isoformat(), "haber_yasaklari": []}}
@@ -134,6 +135,22 @@ class KopruTest(unittest.TestCase):
     def test_algo_kapaliysa_gondermez(self):
         sahte_mt5.DURUM["algo"] = False
         self.calistir(True, sinyal(self.an))
+        self.assertEqual(sahte_mt5.DURUM["gonderilen"], [])
+
+    def test_deneme_bakiyesi_risk(self):
+        kopru.DENEME_BAKIYESI = 1000.0
+        sahte_mt5.sifirla(bakiye=100000.0)
+        self.calistir(True, sinyal(self.an))
+        e = sahte_mt5.DURUM["gonderilen"][0]
+        risk = abs(e["price"] - e["sl"]) * e["volume"] * 100000
+        self.assertLessEqual(risk, 15.01)  # 1000 $'in %1,5'i, 100.000'in degil
+
+    def test_deneme_bakiyesi_olum_cizgisi(self):
+        kopru.DENEME_BAKIYESI = 1000.0
+        sahte_mt5.sifirla(bakiye=100000.0)
+        self.calistir(False, sinyal(self.an, id="ilk"))
+        sahte_mt5.DURUM["varlik"] = 100000.0 - 301  # sanal varlik 699 < 700
+        self.calistir(True, sinyal(self.an, id="T2"))
         self.assertEqual(sahte_mt5.DURUM["gonderilen"], [])
 
     def test_kablo_testi(self):
