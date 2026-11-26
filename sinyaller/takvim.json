@@ -1,0 +1,15 @@
+{
+ "guncelleme": "2026-11-26T13:14:18.410382+00:00",
+ "haber_yasaklari": [
+  {
+   "baslangic": "2026-11-25T13:00:00+00:00",
+   "bitis": "2026-11-25T14:00:00+00:00",
+   "olay": "Core PCE Price Index m/m"
+  },
+  {
+   "baslangic": "2026-11-25T13:00:00+00:00",
+   "bitis": "2026-11-25T14:00:00+00:00",
+   "olay": "Prelim GDP q/q"
+  }
+ ]
+}

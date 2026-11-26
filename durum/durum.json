@@ -1,0 +1,27 @@
+{
+ "golge": {
+  "baslangic": 100.0,
+  "bakiye": 100.0,
+  "acik_islem": null,
+  "gecmis": [],
+  "ardisik_zarar": 0,
+  "mola_bitis": null,
+  "olu": false,
+  "gun": {
+   "tarih": "2026-11-26",
+   "bakiye": 100.0
+  },
+  "hafta": {
+   "tarih": "2026-W48",
+   "bakiye": 100.0
+  }
+ },
+ "kurul": {
+  "tarih": "2026-11-26",
+  "bugun": 0,
+  "toplam": 0,
+  "son_tetik": {}
+ },
+ "karne": {},
+ "hayaletler": []
+}
