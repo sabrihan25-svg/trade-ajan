@@ -108,6 +108,55 @@ def ozet_yaz(durum, rapor, an):
         f.write("\n".join(s) + "\n")
 
 
+def _r(x, n=6):
+    return None if x is None else round(x, n)
+
+
+def canli_yaz(durum, rapor, an, tarama, olaylar):
+    """Canli panelin okudugu tek dosya: durum/canli.json. Gercek hesap bilgisi ICERMEZ."""
+    t_liste = []
+    for t in tarama:
+        if "hata" in t:
+            t_liste.append({"sembol": t["sembol"], "hata": t["hata"]})
+            continue
+        from . import gostergeler as gg
+        h1, m15 = gg.ozet(t["m_h1"]), gg.ozet(t["m_15"])
+        f = t["firsat"]
+        t_liste.append({
+            "sembol": t["sembol"], "fiyat": _r(t["anlik"]), "trend": firsat_mod.trend(h1),
+            "h1": {"ema50": _r(h1["ema50"]), "ema200": _r(h1["ema200"]), "rsi": _r(h1["rsi"], 1), "atr": _r(h1["atr"])},
+            "m15": {"ema50": _r(m15["ema50"]), "rsi": _r(m15["rsi"], 1), "atr": _r(m15["atr"]),
+                    "tepe": _r(m15["son_tepe"]), "dip": _r(m15["son_dip"])},
+            "kapanislar": [_r(m["c"]) for m in t["m_15"][-60:]],
+            "firsat": {"tur": f["tur"], "yon": f["yon"], "aciklama": f["aciklama"]} if f else None,
+        })
+    kayitlar = []
+    try:
+        with open(yol("durum", "kurullar", an.strftime("%Y-%m") + ".jsonl"), encoding="utf-8") as fh:
+            kayitlar = [json.loads(x) for x in fh.readlines()[-8:]]
+    except FileNotFoundError:
+        pass
+    g = durum["golge"]
+    yakin = sorted([o for o in olaylar if o["etki"] == "High" and o["zaman"] > an], key=lambda o: o["zaman"])[:5]
+    veri_ = {
+        "guncelleme": an.isoformat(),
+        "rapor": rapor,
+        "tarama": t_liste,
+        "golge": {"baslangic": g["baslangic"], "bakiye": g["bakiye"], "olu": g.get("olu", False),
+                  "ardisik_zarar": g.get("ardisik_zarar", 0), "mola_bitis": g.get("mola_bitis"),
+                  "acik_islem": g.get("acik_islem"),
+                  "gecmis": [{"kapanis": i["kapanis"], "sembol": i["sembol"], "yon": i["yon"], "sonuc": i["sonuc"],
+                              "r": i["sonuc_r"], "tutar": i["tutar"], "bakiye": i["bakiye_sonra"]}
+                             for i in g.get("gecmis", [])[-30:]]},
+        "kurul": {"bugun": durum["kurul"].get("bugun", 0), "toplam": durum["kurul"].get("toplam", 0), "sinir": 6},
+        "karne": durum["karne"],
+        "son_kurullar": kayitlar,
+        "aktif_sinyal": json_oku(yol("sinyaller", "sinyal.json"), None),
+        "yakin_haberler": [{"zaman": o["zaman"].isoformat(), "ulke": o["ulke"], "olay": o["baslik"]} for o in yakin],
+    }
+    json_yaz(yol("durum", "canli.json"), veri_)
+
+
 def calistir(an=None, kaynak=None, sor=modeller.sor):
     ayar = json_oku(yol("config", "ayarlar.json"), None)
     durum = json_oku(yol("durum", "durum.json"), None) or varsayilan_durum(ayar)
@@ -153,9 +202,23 @@ def calistir(an=None, kaynak=None, sor=modeller.sor):
     if takvim_ok:
         json_yaz(yol("sinyaller", "takvim.json"), {"guncelleme": an.isoformat(), "haber_yasaklari": yasaklar})
 
+    # Tum sembolleri tara (panel icin her gecis; kurallar engellese bile)
+    tarama = []
+    for sembol in ayar["semboller"]:
+        try:
+            m_h1, _ = kaynak.mumlar(sembol, "60m")
+            m_15, anlik = kaynak.mumlar(sembol, "15m")
+        except Exception as e:
+            log(f"{sembol}: veri alinamadi ({e})")
+            tarama.append({"sembol": sembol, "hata": str(e)[:120]})
+            continue
+        f = firsat_mod.tara(m_h1, m_15)
+        tarama.append({"sembol": sembol, "m_h1": m_h1, "m_15": m_15, "anlik": anlik or m_15[-1]["c"], "firsat": f})
+
     def bitir():
         json_yaz(yol("durum", "durum.json"), durum)
         ozet_yaz(durum, rapor, an)
+        canli_yaz(durum, rapor, an, tarama, olaylar)
         return rapor
 
     # 3) Hayatta kalma kurallari
@@ -187,28 +250,23 @@ def calistir(an=None, kaynak=None, sor=modeller.sor):
         log("Islem yok: gunluk kurul toplanti siniri doldu (maliyet siniri)")
         return bitir()
 
-    # 4) Firsat tara
+    # 4) Firsat sec
     secilen = None
-    for sembol, s_ayar in ayar["semboller"].items():
-        try:
-            m_h1, _ = kaynak.mumlar(sembol, "60m")
-            m_15, anlik = kaynak.mumlar(sembol, "15m")
-        except Exception as e:
-            log(f"{sembol}: veri alinamadi ({e})")
-            continue
-        f = firsat_mod.tara(m_h1, m_15)
+    for t in tarama:
+        f = t.get("firsat")
         if not f:
             continue
+        sembol = t["sembol"]
         anahtar = f"{sembol}:{f['yon']}"
         son = k["son_tetik"].get(anahtar)
         if son and an - dt.datetime.fromisoformat(son) < dt.timedelta(hours=ayar["kurul"]["ayni_firsat_bekleme_saat"]):
             log(f"{sembol}: {f['tur']} firsati var ama yakin zamanda kurul toplandi")
             continue
-        fark = s_ayar["tipik_fark"]
+        fark = ayar["semboller"][sembol]["tipik_fark"]
         if f["h1"]["atr"] and fark > f["h1"]["atr"] * kurallar.EN_FAZLA_FARK_ATR_ORANI:
             log(f"{sembol}: alis-satis farki cok genis, atlandi")
             continue
-        secilen = (sembol, f, m_h1, m_15, anlik or m_15[-1]["c"], fark)
+        secilen = (sembol, f, t["m_h1"], t["m_15"], t["anlik"], fark)
         break
     if not secilen:
         log("Firsat yok, kurul toplanmadi.")
