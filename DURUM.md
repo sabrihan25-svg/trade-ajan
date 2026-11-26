@@ -1,14 +1,11 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 00:01** (Turkiye saati)
+Son kontrol: **27.11.2026 00:06** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- FIRSAT: USDJPY long - 1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu. Kurul toplaniyor.
--   claude: wait guven=0.70 stop=%0.0 hedef=%0.0 - Şükran Günü tatili ve rollover saatinde likidite çok düşük, spread ATR'nin %40'ı ve fiyat EMA'lar etrafında yatay sıkışmış. Ayrıca 160 müdahale riski ve Tokyo TÜFE öncesi net bir avantaj yok.
--   gpt: wait guven=0.90 stop=%0.0 hedef=%0.0 - Saatlik yükseliş eğilimine rağmen 15 dakikalık toparlanma zayıf; fiyat 159,338 direnci altında ve haberler net yön teyidi sağlamıyor. Spreadin 15 dakikalık ATR'nin yaklaşık %40'ına ulaşması ve ABD tatilindeki düşük likidite riski nedeniyle beklemek daha uygun.
--   deepseek: wait guven=0.30 stop=%0.0 hedef=%0.0 - 15 dakikalık toparlanma zayıf ve RSI nötr; 1 saatlik trend güçlü değil. Yaklaşan Tokyo TÜFE verisi ve tatil likiditesi riski nedeniyle beklemek daha uygun.
-- KARAR: islem yok: uc model de 'bekle' dedi
+- USDJPY: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi
+- Firsat yok, kurul toplanmadi.
 
 ## Golge (kagit) hesap
 
