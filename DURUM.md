@@ -1,10 +1,9 @@
 # Ajan durumu
 
-Son kontrol: **26.11.2026 20:18** (Turkiye saati)
+Son kontrol: **26.11.2026 20:43** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- USDJPY: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi
 - Firsat yok, kurul toplanmadi.
 
 ## Golge (kagit) hesap
