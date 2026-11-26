@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-26T20:01:53.813075+00:00",
+ "guncelleme": "2026-11-26T20:05:08.215819+00:00",
  "rapor": [
   "Takvim alinamadi: https://nfs.faireconomy.media/ff_calendar_thisweek.json: HTTP 429",
   "Islem yok: takvim okunamadi (haber saatleri bilinmeden islem acilmaz)"
@@ -88,7 +88,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.256,
+   "fiyat": 159.268,
    "trend": "yukari",
    "h1": {
     "ema50": 159.205256,
@@ -169,7 +169,7 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3108,
+   "fiyat": 1.3109,
    "trend": null,
    "h1": {
     "ema50": 1.310062,
