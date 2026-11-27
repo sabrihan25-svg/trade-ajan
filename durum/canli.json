@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-27T18:37:17.262852+00:00",
+ "guncelleme": "2026-11-27T18:40:20.288592+00:00",
  "rapor": [
   "Islem yok: gunluk kurul toplanti siniri doldu (maliyet siniri)"
  ],
@@ -87,7 +87,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.536,
+   "fiyat": 159.533,
    "trend": "yukari",
    "h1": {
     "ema50": 159.318738,
@@ -168,7 +168,7 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3094,
+   "fiyat": 1.3093,
    "trend": "asagi",
    "h1": {
     "ema50": 1.310987,
