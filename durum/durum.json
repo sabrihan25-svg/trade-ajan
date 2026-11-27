@@ -54,34 +54,9 @@
    "bekle": 3,
    "cevapsiz": 0,
    "kazanan": 1,
-   "kaybeden": 2,
-   "toplam_R": -0.5
+   "kaybeden": 4,
+   "toplam_R": -0.731
   }
  },
- "hayaletler": [
-  {
-   "sembol": "USDJPY",
-   "yon": "long",
-   "giris": 159.576,
-   "stop": 159.3845232,
-   "hedef": 159.86321519999998,
-   "rr": 1.5,
-   "acilis": "2026-11-27T13:17:06.653063+00:00",
-   "kaynak": "hayalet",
-   "model": "deepseek",
-   "son_mum_t": 1795810500
-  },
-  {
-   "sembol": "GBPUSD",
-   "yon": "short",
-   "giris": 1.30936,
-   "stop": 1.3111933,
-   "hedef": 1.3066100500000002,
-   "rr": 1.4999999999999998,
-   "acilis": "2026-11-27T18:33:03.697981+00:00",
-   "kaynak": "hayalet",
-   "model": "deepseek",
-   "son_mum_t": 1795810500
-  }
- ]
+ "hayaletler": []
 }

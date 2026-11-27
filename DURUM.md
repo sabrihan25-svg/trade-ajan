@@ -1,6 +1,6 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 23:42** (Turkiye saati)
+Son kontrol: **27.11.2026 23:45** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
@@ -24,7 +24,7 @@ Son kontrol: **27.11.2026 23:42** (Turkiye saati)
 |---|---|---|---|---|---|---|---|---|
 | claude | 8 | 0 | 0 | 8 | 0 | 0 | 0 | 0.0 |
 | gpt | 8 | 0 | 0 | 8 | 0 | 0 | 0 | 0.0 |
-| deepseek | 8 | 4 | 1 | 3 | 0 | 1 | 2 | -0.5 |
+| deepseek | 8 | 4 | 1 | 3 | 0 | 1 | 4 | -0.731 |
 
 ## Son golge islemler
 
