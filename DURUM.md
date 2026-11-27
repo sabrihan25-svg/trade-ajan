@@ -1,11 +1,10 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 11:27** (Turkiye saati)
+Son kontrol: **27.11.2026 11:30** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- Takvim alinamadi: https://nfs.faireconomy.media/ff_calendar_thisweek.json: HTTP 429
-- Islem yok: takvim okunamadi (haber saatleri bilinmeden islem acilmaz)
+- Firsat yok, kurul toplanmadi.
 
 ## Golge (kagit) hesap
 
