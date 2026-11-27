@@ -1,34 +1,27 @@
 {
- "guncelleme": "2026-11-27T13:17:06.653063+00:00",
+ "guncelleme": "2026-11-27T14:10:21.837205+00:00",
  "rapor": [
-  "FIRSAT: USDJPY long - 1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu. Kurul toplaniyor.",
-  "  gpt: wait guven=0.88 stop=%0.0 hedef=%0.0 - Trend yukarı olsa da fiyat 159.574 direncinin hemen altında; son 15 dakikalık sıçramanın ardından kırılım teyidi olmadan long girişi fiyatı kovalamak olur. Tatil kaynaklı düşük likidite, ATR'nin yaklaşık %19'u olan spread ve karışık dolar haberleri nedeniyle direnç üzerinde tutunma ve başarılı yeniden test bekle.",
-  "  claude: wait guven=0.62 stop=%0.0 hedef=%0.0 - 1s trend yukarı olsa da fiyat tek mumda sıçrayıp 159.574 direncine dayandı; buradan long kovalamak kötü bir giriş olur. Tatil sonrası ince cuma likiditesi, 160 civarındaki müdahale riski ve karışık dolar haberleri nedeniyle beklemek daha güvenli.",
-  "  deepseek: long guven=0.60 stop=%0.12 hedef=%0.18 - 15dk EMA50'den dönen fiyat, 1 saatlik yükseliş trendiyle uyumlu long sinyali veriyor; risk iştahı destekliyor ancak tatil likiditesi düşük, hedef sınırlı.",
-  "KARAR: islem yok: modeller ayni yonde degil: gpt=wait, claude=wait, deepseek=long"
+  "Firsat yok, kurul toplanmadi."
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0953,
+   "fiyat": 1.0952,
    "trend": "asagi",
    "h1": {
-    "ema50": 1.097,
-    "ema200": 1.098566,
-    "rsi": 46.0,
-    "atr": 0.000855
+    "ema50": 1.096934,
+    "ema200": 1.098534,
+    "rsi": 35.1,
+    "atr": 0.000957
    },
    "m15": {
-    "ema50": 1.097097,
-    "rsi": 31.3,
-    "atr": 0.000538,
-    "tepe": 1.097936,
-    "dip": 1.09589
+    "ema50": 1.096862,
+    "rsi": 35.1,
+    "atr": 0.000557,
+    "tepe": 1.097333,
+    "dip": 1.094571
    },
    "kapanislar": [
-    1.096852,
-    1.097454,
-    1.097454,
     1.097333,
     1.097333,
     1.097333,
@@ -85,31 +78,31 @@
     1.096972,
     1.096972,
     1.096852,
-    1.09553
+    1.09553,
+    1.094691,
+    1.09505,
+    1.09529
    ],
    "firsat": null
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.564,
+   "fiyat": 159.534,
    "trend": "yukari",
    "h1": {
-    "ema50": 159.274027,
-    "ema200": 159.208133,
-    "rsi": 60.2,
-    "atr": 0.108776
+    "ema50": 159.285083,
+    "ema200": 159.211573,
+    "rsi": 64.9,
+    "atr": 0.109434
    },
    "m15": {
-    "ema50": 159.385973,
-    "rsi": 67.1,
-    "atr": 0.061809,
-    "tepe": 159.574005,
-    "dip": 159.307999
+    "ema50": 159.404008,
+    "rsi": 63.5,
+    "atr": 0.060027,
+    "tepe": 159.580994,
+    "dip": 159.367004
    },
    "kapanislar": [
-    159.225006,
-    159.203003,
-    159.207001,
     159.287994,
     159.253006,
     159.270004,
@@ -166,35 +159,31 @@
     159.453003,
     159.440002,
     159.462997,
-    159.569
+    159.569,
+    159.548004,
+    159.531998,
+    159.556
    ],
-   "firsat": {
-    "tur": "geri_cekilme_bitti",
-    "yon": "long",
-    "aciklama": "1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu"
-   }
+   "firsat": null
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3115,
+   "fiyat": 1.3116,
    "trend": null,
    "h1": {
-    "ema50": 1.311027,
-    "ema200": 1.313281,
-    "rsi": 62.7,
-    "atr": 0.001042
+    "ema50": 1.31107,
+    "ema200": 1.31327,
+    "rsi": 53.5,
+    "atr": 0.001122
    },
    "m15": {
-    "ema50": 1.312298,
-    "rsi": 37.9,
-    "atr": 0.000565,
+    "ema50": 1.312204,
+    "rsi": 47.0,
+    "atr": 0.000617,
     "tepe": 1.313508,
-    "dip": 1.311716
+    "dip": 1.310839
    },
    "kapanislar": [
-    1.310856,
-    1.310977,
-    1.310839,
     1.310668,
     1.310685,
     1.310839,
@@ -251,7 +240,10 @@
     1.313422,
     1.313094,
     1.313008,
-    1.311648
+    1.311648,
+    1.310856,
+    1.311389,
+    1.312112
    ],
    "firsat": null
   }
