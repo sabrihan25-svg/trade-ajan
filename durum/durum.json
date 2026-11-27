@@ -51,23 +51,10 @@
    "short": 0,
    "bekle": 2,
    "cevapsiz": 0,
-   "kazanan": 0,
+   "kazanan": 1,
    "kaybeden": 2,
-   "toplam_R": -2.0
+   "toplam_R": -0.5
   }
  },
- "hayaletler": [
-  {
-   "sembol": "USDJPY",
-   "yon": "long",
-   "giris": 159.307,
-   "stop": 159.179564,
-   "hedef": 159.498154,
-   "rr": 1.5,
-   "acilis": "2026-11-27T05:51:06.091151+00:00",
-   "kaynak": "hayalet",
-   "model": "deepseek",
-   "son_mum_t": 1795771800
-  }
- ]
+ "hayaletler": []
 }
