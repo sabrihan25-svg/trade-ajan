@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-27T20:33:03.754831+00:00",
+ "guncelleme": "2026-11-27T20:36:06.291838+00:00",
  "rapor": [
   "Islem yok: Cuma aksami: hafta sonuna islem tasinmaz"
  ],
@@ -87,7 +87,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.548,
+   "fiyat": 159.55,
    "trend": "yukari",
    "h1": {
     "ema50": 159.336466,
