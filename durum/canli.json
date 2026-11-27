@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-27T15:26:29.794019+00:00",
+ "guncelleme": "2026-11-27T15:29:32.603827+00:00",
  "rapor": [
   "EURUSD: seviye_kirilimi firsati var ama yakin zamanda kurul toplandi",
   "Firsat yok, kurul toplanmadi."
@@ -92,7 +92,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.511,
+   "fiyat": 159.51,
    "trend": "yukari",
    "h1": {
     "ema50": 159.292256,
