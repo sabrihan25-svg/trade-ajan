@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-27T15:23:27.197160+00:00",
+ "guncelleme": "2026-11-27T15:26:29.794019+00:00",
  "rapor": [
   "EURUSD: seviye_kirilimi firsati var ama yakin zamanda kurul toplandi",
   "Firsat yok, kurul toplanmadi."
@@ -7,7 +7,7 @@
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0943,
+   "fiyat": 1.0946,
    "trend": "asagi",
    "h1": {
     "ema50": 1.096864,
@@ -92,7 +92,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.533,
+   "fiyat": 159.511,
    "trend": "yukari",
    "h1": {
     "ema50": 159.292256,
@@ -173,7 +173,7 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3106,
+   "fiyat": 1.3109,
    "trend": null,
    "h1": {
     "ema50": 1.31108,
