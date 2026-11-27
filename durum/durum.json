@@ -67,7 +67,7 @@
    "acilis": "2026-11-26T15:49:48.098325+00:00",
    "kaynak": "hayalet",
    "model": "deepseek",
-   "son_mum_t": 1795735800
+   "son_mum_t": 1795739400
   },
   {
    "sembol": "USDJPY",
@@ -78,7 +78,8 @@
    "rr": 2.0,
    "acilis": "2026-11-27T00:03:55.609769+00:00",
    "kaynak": "hayalet",
-   "model": "deepseek"
+   "model": "deepseek",
+   "son_mum_t": 1795739400
   }
  ]
 }
