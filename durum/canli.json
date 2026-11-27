@@ -1,31 +1,31 @@
 {
- "guncelleme": "2026-11-27T08:45:44.656961+00:00",
+ "guncelleme": "2026-11-27T09:38:44.524176+00:00",
  "rapor": [
-  "Takvim alinamadi: https://nfs.faireconomy.media/ff_calendar_thisweek.json: HTTP 429",
-  "Islem yok: takvim okunamadi (haber saatleri bilinmeden islem acilmaz)"
+  "FIRSAT: USDJPY long - 1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu. Kurul toplaniyor.",
+  "  claude: wait guven=0.62 stop=%0.0 hedef=%0.0 - 1s trend yukarı ama fiyat EMA50'den çoktan uzaklaşmış, 15dk RSI 74 ile aşırı alımda ve tatil sonrası ince Cuma piyasasında 160 müdahale bölgesinin hemen altında kovalamak riskli. Haberler doların zayıfladığını söylüyor; yeni bir geri çekilme beklemek daha güvenli.",
+  "  gpt: wait guven=0.88 stop=%0.0 hedef=%0.0 - Saatlik trend yukarı olsa da fiyat 15dk EMA50'nin yaklaşık 3 ATR üzerinde ve son tepeye dayanmış; RSI 74 ile mevcut giriş geri çekilmeden çok yükselişi kovalamak olur. Tatil kaynaklı düşük likidite ve doların zayıfladığına işaret eden haberler long yönünü desteklemiyor; kırılan saatlik tepenin destek olarak teyidini bekle.",
+  "  deepseek: wait guven=0.35 stop=%0.0 hedef=%0.0 - Fiyat 15dk RSI 74 ile dirençte ve tatil likiditesi düşük; dolar zayıflığı haberiyle uyumsuz. Geri çekilme sonrası net teyit beklenmeli.",
+  "KARAR: islem yok: uc model de 'bekle' dedi"
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0967,
+   "fiyat": 1.0965,
    "trend": null,
    "h1": {
-    "ema50": 1.097053,
-    "ema200": 1.098658,
-    "rsi": 54.6,
-    "atr": 0.000806
+    "ema50": 1.09704,
+    "ema200": 1.098639,
+    "rsi": 44.1,
+    "atr": 0.000852
    },
    "m15": {
-    "ema50": 1.097639,
-    "rsi": 35.8,
-    "atr": 0.000488,
+    "ema50": 1.097513,
+    "rsi": 36.4,
+    "atr": 0.000503,
     "tepe": 1.09878,
-    "dip": 1.096491
+    "dip": 1.096371
    },
    "kapanislar": [
-    1.097333,
-    1.097333,
-    1.097333,
     1.097333,
     1.097333,
     1.097333,
@@ -82,31 +82,31 @@
     1.097936,
     1.097093,
     1.096852,
-    1.096611
+    1.096611,
+    1.096732,
+    1.096371,
+    1.096491
    ],
    "firsat": null
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.425,
+   "fiyat": 159.482,
    "trend": "yukari",
    "h1": {
-    "ema50": 159.232848,
-    "ema200": 159.195197,
-    "rsi": 57.0,
-    "atr": 0.101694
+    "ema50": 159.240894,
+    "ema200": 159.197613,
+    "rsi": 63.3,
+    "atr": 0.107073
    },
    "m15": {
-    "ema50": 159.290395,
-    "rsi": 68.5,
-    "atr": 0.059858,
-    "tepe": 159.406998,
+    "ema50": 159.309643,
+    "rsi": 74.0,
+    "atr": 0.057598,
+    "tepe": 159.485001,
     "dip": 159.195999
    },
    "kapanislar": [
-    159.292007,
-    159.287994,
-    159.283005,
     159.274002,
     159.268997,
     159.266006,
@@ -163,7 +163,10 @@
     159.337997,
     159.367996,
     159.388,
-    159.423996
+    159.423996,
+    159.438004,
+    159.460007,
+    159.481995
    ],
    "firsat": {
     "tur": "geri_cekilme_bitti",
@@ -173,25 +176,22 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3121,
+   "fiyat": 1.3126,
    "trend": null,
    "h1": {
-    "ema50": 1.310626,
-    "ema200": 1.313304,
-    "rsi": 57.9,
-    "atr": 0.00103
+    "ema50": 1.310699,
+    "ema200": 1.313296,
+    "rsi": 59.5,
+    "atr": 0.001045
    },
    "m15": {
-    "ema50": 1.311732,
-    "rsi": 48.8,
-    "atr": 0.000505,
+    "ema50": 1.311805,
+    "rsi": 50.8,
+    "atr": 0.000535,
     "tepe": 1.31306,
     "dip": 1.311579
    },
    "kapanislar": [
-    1.310874,
-    1.310702,
-    1.31096,
     1.310822,
     1.310753,
     1.310616,
@@ -248,7 +248,10 @@
     1.312233,
     1.312508,
     1.312147,
-    1.311992
+    1.311992,
+    1.312491,
+    1.312474,
+    1.312181
    ],
    "firsat": null
   }
@@ -263,36 +266,36 @@
   "gecmis": []
  },
  "kurul": {
-  "bugun": 2,
-  "toplam": 4,
+  "bugun": 3,
+  "toplam": 5,
   "sinir": 6
  },
  "karne": {
   "claude": {
-   "toplanti": 4,
+   "toplanti": 5,
    "long": 0,
    "short": 0,
-   "bekle": 4,
+   "bekle": 5,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 4,
+   "toplanti": 5,
    "long": 0,
    "short": 0,
-   "bekle": 4,
+   "bekle": 5,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 4,
+   "toplanti": 5,
    "long": 3,
    "short": 0,
-   "bekle": 1,
+   "bekle": 2,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 2,
@@ -443,6 +446,42 @@
     }
    },
    "sonuc": "islem yok: modeller ayni yonde degil: claude=wait, gpt=wait, deepseek=long"
+  },
+  {
+   "zaman": "2026-11-27T09:38:44.524176+00:00",
+   "sembol": "USDJPY",
+   "firsat": "geri_cekilme_bitti",
+   "kod_yonu": "long",
+   "oylar": {
+    "claude": {
+     "yon": "wait",
+     "guven": 0.62,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "1s trend yukarı ama fiyat EMA50'den çoktan uzaklaşmış, 15dk RSI 74 ile aşırı alımda ve tatil sonrası ince Cuma piyasasında 160 müdahale bölgesinin hemen altında kovalamak riskli. Haberler doların zayıfladığını söylüyor; yeni bir geri çekilme beklemek daha güvenli.",
+     "hizmet_eden_model": "claude-fable-5-2"
+    },
+    "gpt": {
+     "yon": "wait",
+     "guven": 0.88,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Saatlik trend yukarı olsa da fiyat 15dk EMA50'nin yaklaşık 3 ATR üzerinde ve son tepeye dayanmış; RSI 74 ile mevcut giriş geri çekilmeden çok yükselişi kovalamak olur. Tatil kaynaklı düşük likidite ve doların zayıfladığına işaret eden haberler long yönünü desteklemiyor; kırılan saatlik tepenin destek olarak teyidini bekle.",
+     "hizmet_eden_model": "gpt-6-astra"
+    },
+    "deepseek": {
+     "yon": "wait",
+     "guven": 0.35,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Fiyat 15dk RSI 74 ile dirençte ve tatil likiditesi düşük; dolar zayıflığı haberiyle uyumsuz. Geri çekilme sonrası net teyit beklenmeli.",
+     "hizmet_eden_model": "deepseek-v4-pro"
+    }
+   },
+   "sonuc": "islem yok: uc model de 'bekle' dedi"
   }
  ],
  "aktif_sinyal": null,
