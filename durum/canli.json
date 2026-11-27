@@ -1,30 +1,28 @@
 {
- "guncelleme": "2026-11-27T10:04:21.283516+00:00",
+ "guncelleme": "2026-11-27T10:44:07.286483+00:00",
  "rapor": [
-  "USDJPY: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi",
+  "USDJPY: seviye_kirilimi firsati var ama yakin zamanda kurul toplandi",
   "Firsat yok, kurul toplanmadi."
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.096,
+   "fiyat": 1.0966,
    "trend": null,
    "h1": {
     "ema50": 1.097019,
-    "ema200": 1.098618,
+    "ema200": 1.098619,
     "rsi": 42.4,
     "atr": 0.000868
    },
    "m15": {
-    "ema50": 1.09743,
-    "rsi": 37.5,
-    "atr": 0.000492,
+    "ema50": 1.097335,
+    "rsi": 36.0,
+    "atr": 0.00049,
     "tepe": 1.09878,
     "dip": 1.09589
    },
    "kapanislar": [
-    1.097333,
-    1.097213,
     1.097333,
     1.097454,
     1.097454,
@@ -82,30 +80,30 @@
     1.096371,
     1.096491,
     1.096371,
-    1.096491
+    1.096491,
+    1.096131,
+    1.096251
    ],
    "firsat": null
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.541,
+   "fiyat": 159.525,
    "trend": "yukari",
    "h1": {
-    "ema50": 159.251525,
-    "ema200": 159.200741,
+    "ema50": 159.251522,
+    "ema200": 159.200719,
     "rsi": 67.1,
     "atr": 0.105781
    },
    "m15": {
-    "ema50": 159.324148,
-    "rsi": 76.6,
-    "atr": 0.057199,
-    "tepe": 159.494003,
-    "dip": 159.225998
+    "ema50": 159.341686,
+    "rsi": 80.4,
+    "atr": 0.057897,
+    "tepe": 159.561005,
+    "dip": 159.246002
    },
    "kapanislar": [
-    159.266006,
-    159.274994,
     159.263,
     159.264008,
     159.259995,
@@ -163,17 +161,19 @@
     159.460007,
     159.481995,
     159.483994,
-    159.511993
+    159.511993,
+    159.539993,
+    159.563995
    ],
    "firsat": {
-    "tur": "geri_cekilme_bitti",
+    "tur": "seviye_kirilimi",
     "yon": "long",
-    "aciklama": "1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu"
+    "aciklama": "1s trend yukari; 15dk'da son 20 mumun tepesi (159.56) yukari kirildi"
    }
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3121,
+   "fiyat": 1.3131,
    "trend": null,
    "h1": {
     "ema50": 1.310776,
@@ -182,15 +182,13 @@
     "atr": 0.001063
    },
    "m15": {
-    "ema50": 1.311864,
-    "rsi": 56.9,
-    "atr": 0.000535,
+    "ema50": 1.311927,
+    "rsi": 58.8,
+    "atr": 0.000526,
     "tepe": 1.31306,
-    "dip": 1.311596
+    "dip": 1.311716
    },
    "kapanislar": [
-    1.310616,
-    1.310513,
     1.31065,
     1.310874,
     1.310753,
@@ -248,7 +246,9 @@
     1.312474,
     1.312181,
     1.312491,
-    1.312646
+    1.312646,
+    1.312543,
+    1.312818
    ],
    "firsat": null
   }
