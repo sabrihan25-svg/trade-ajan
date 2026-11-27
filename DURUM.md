@@ -1,10 +1,10 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 21:40** (Turkiye saati)
+Son kontrol: **27.11.2026 22:25** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- Islem yok: gunluk kurul toplanti siniri doldu (maliyet siniri)
+- Islem yok: Cuma aksami: hafta sonuna islem tasinmaz
 
 ## Golge (kagit) hesap
 

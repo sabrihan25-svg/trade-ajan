@@ -69,7 +69,7 @@
    "acilis": "2026-11-27T13:17:06.653063+00:00",
    "kaynak": "hayalet",
    "model": "deepseek",
-   "son_mum_t": 1795803300
+   "son_mum_t": 1795806000
   },
   {
    "sembol": "GBPUSD",
@@ -80,7 +80,8 @@
    "rr": 1.4999999999999998,
    "acilis": "2026-11-27T18:33:03.697981+00:00",
    "kaynak": "hayalet",
-   "model": "deepseek"
+   "model": "deepseek",
+   "son_mum_t": 1795806000
   }
  ]
 }
