@@ -18,36 +18,36 @@
  },
  "kurul": {
   "tarih": "2026-11-27",
-  "bugun": 3,
-  "toplam": 5,
+  "bugun": 4,
+  "toplam": 6,
   "son_tetik": {
-   "USDJPY:long": "2026-11-27T09:38:44.524176+00:00"
+   "USDJPY:long": "2026-11-27T13:17:06.653063+00:00"
   }
  },
  "karne": {
   "claude": {
-   "toplanti": 5,
+   "toplanti": 6,
    "long": 0,
    "short": 0,
-   "bekle": 5,
+   "bekle": 6,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 5,
+   "toplanti": 6,
    "long": 0,
    "short": 0,
-   "bekle": 5,
+   "bekle": 6,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 5,
-   "long": 3,
+   "toplanti": 6,
+   "long": 4,
    "short": 0,
    "bekle": 2,
    "cevapsiz": 0,
@@ -56,5 +56,17 @@
    "toplam_R": -0.5
   }
  },
- "hayaletler": []
+ "hayaletler": [
+  {
+   "sembol": "USDJPY",
+   "yon": "long",
+   "giris": 159.576,
+   "stop": 159.3845232,
+   "hedef": 159.86321519999998,
+   "rr": 1.5,
+   "acilis": "2026-11-27T13:17:06.653063+00:00",
+   "kaynak": "hayalet",
+   "model": "deepseek"
+  }
+ ]
 }
