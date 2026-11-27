@@ -1,12 +1,12 @@
 {
- "guncelleme": "2026-11-27T03:35:23.619503+00:00",
+ "guncelleme": "2026-11-27T03:38:25.532813+00:00",
  "rapor": [
   "Firsat yok, kurul toplanmadi."
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0984,
+   "fiyat": 1.0983,
    "trend": null,
    "h1": {
     "ema50": 1.096866,
@@ -87,7 +87,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.208,
+   "fiyat": 159.223,
    "trend": null,
    "h1": {
     "ema50": 159.215185,
