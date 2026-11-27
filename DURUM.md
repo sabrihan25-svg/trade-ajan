@@ -1,10 +1,10 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 23:45** (Turkiye saati)
+Son kontrol: **28.11.2026 00:21** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- Islem yok: Cuma aksami: hafta sonuna islem tasinmaz
+- Islem yok: piyasa kapali
 
 ## Golge (kagit) hesap
 
