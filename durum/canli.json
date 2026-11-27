@@ -1,7 +1,11 @@
 {
- "guncelleme": "2026-11-27T18:30:00.899767+00:00",
+ "guncelleme": "2026-11-27T18:33:03.697981+00:00",
  "rapor": [
-  "Firsat yok, kurul toplanmadi."
+  "FIRSAT: GBPUSD short - 1s trend asagi; 15dk'da son 20 mumun dibi (1.3095) asagi kirildi. Kurul toplaniyor.",
+  "  gpt: wait guven=0.88 stop=%0.0 hedef=%0.0 - Saatlik trend aşağı olsa da 15 dakikalık dip kırılımı spread mesafesinden küçük ve fiyat saatlik dibin üzerinde; kırılım henüz güçlü teyit vermiyor. Tatil kaynaklı düşük likidite, ATR'nin %25'i düzeyindeki spread ve karışık haber akışı nedeniyle saatlik dip altında kalıcılık ve başarısız geri test beklemek daha uygun.",
+  "  claude: wait guven=0.70 stop=%0.0 hedef=%0.0 - Cuma akşamı, Şükran Günü sonrası ince likiditede hafta sonu kapanışına az kaldı ve kırılım yalnızca birkaç pip, spread ATR'nin %25'i. İşlem hafta sonuna taşınamayacağı için hedefe ulaşma süresi yetersiz, beklemek daha güvenli.",
+  "  deepseek: short guven=0.60 stop=%0.14 hedef=%0.21 - 1s ve 15dk trend aşağı, 15dk seviye kırılımı gerçekleşti; fiyat EMA'ların altında ve RSI zayıf, kısa sinyali destekliyor.",
+  "KARAR: islem yok: modeller ayni yonde degil: gpt=wait, claude=wait, deepseek=short"
  ],
  "tarama": [
   {
@@ -87,7 +91,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.536,
+   "fiyat": 159.534,
    "trend": "yukari",
    "h1": {
     "ema50": 159.318738,
@@ -177,9 +181,9 @@
     "atr": 0.001125
    },
    "m15": {
-    "ema50": 1.311263,
-    "rsi": 34.7,
-    "atr": 0.000553,
+    "ema50": 1.31126,
+    "rsi": 34.0,
+    "atr": 0.000557,
     "tepe": 1.312422,
     "dip": 1.309535
    },
@@ -243,9 +247,13 @@
     1.309843,
     1.309981,
     1.309603,
-    1.309552
+    1.309466
    ],
-   "firsat": null
+   "firsat": {
+    "tur": "seviye_kirilimi",
+    "yon": "short",
+    "aciklama": "1s trend asagi; 15dk'da son 20 mumun dibi (1.3095) asagi kirildi"
+   }
   }
  ],
  "golge": {
@@ -258,35 +266,35 @@
   "gecmis": []
  },
  "kurul": {
-  "bugun": 5,
-  "toplam": 7,
+  "bugun": 6,
+  "toplam": 8,
   "sinir": 6
  },
  "karne": {
   "claude": {
-   "toplanti": 7,
+   "toplanti": 8,
    "long": 0,
    "short": 0,
-   "bekle": 7,
+   "bekle": 8,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 7,
+   "toplanti": 8,
    "long": 0,
    "short": 0,
-   "bekle": 7,
+   "bekle": 8,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 7,
+   "toplanti": 8,
    "long": 4,
-   "short": 0,
+   "short": 1,
    "bekle": 3,
    "cevapsiz": 0,
    "kazanan": 1,
@@ -546,6 +554,42 @@
     }
    },
    "sonuc": "islem yok: uc model de 'bekle' dedi"
+  },
+  {
+   "zaman": "2026-11-27T18:33:03.697981+00:00",
+   "sembol": "GBPUSD",
+   "firsat": "seviye_kirilimi",
+   "kod_yonu": "short",
+   "oylar": {
+    "gpt": {
+     "yon": "wait",
+     "guven": 0.88,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Saatlik trend aşağı olsa da 15 dakikalık dip kırılımı spread mesafesinden küçük ve fiyat saatlik dibin üzerinde; kırılım henüz güçlü teyit vermiyor. Tatil kaynaklı düşük likidite, ATR'nin %25'i düzeyindeki spread ve karışık haber akışı nedeniyle saatlik dip altında kalıcılık ve başarısız geri test beklemek daha uygun.",
+     "hizmet_eden_model": "gpt-6-astra"
+    },
+    "claude": {
+     "yon": "wait",
+     "guven": 0.7,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 30,
+     "gerekce": "Cuma akşamı, Şükran Günü sonrası ince likiditede hafta sonu kapanışına az kaldı ve kırılım yalnızca birkaç pip, spread ATR'nin %25'i. İşlem hafta sonuna taşınamayacağı için hedefe ulaşma süresi yetersiz, beklemek daha güvenli.",
+     "hizmet_eden_model": "claude-fable-5-2"
+    },
+    "deepseek": {
+     "yon": "short",
+     "guven": 0.6,
+     "stop_yuzde": 0.14,
+     "hedef_yuzde": 0.21,
+     "gecerlilik_dk": 45,
+     "gerekce": "1s ve 15dk trend aşağı, 15dk seviye kırılımı gerçekleşti; fiyat EMA'ların altında ve RSI zayıf, kısa sinyali destekliyor.",
+     "hizmet_eden_model": "deepseek-v4-pro"
+    }
+   },
+   "sonuc": "islem yok: modeller ayni yonde degil: gpt=wait, claude=wait, deepseek=short"
   }
  ],
  "aktif_sinyal": null,

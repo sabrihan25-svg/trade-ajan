@@ -18,38 +18,39 @@
  },
  "kurul": {
   "tarih": "2026-11-27",
-  "bugun": 5,
-  "toplam": 7,
+  "bugun": 6,
+  "toplam": 8,
   "son_tetik": {
    "USDJPY:long": "2026-11-27T13:17:06.653063+00:00",
-   "EURUSD:short": "2026-11-27T14:16:27.375434+00:00"
+   "EURUSD:short": "2026-11-27T14:16:27.375434+00:00",
+   "GBPUSD:short": "2026-11-27T18:33:03.697981+00:00"
   }
  },
  "karne": {
   "claude": {
-   "toplanti": 7,
+   "toplanti": 8,
    "long": 0,
    "short": 0,
-   "bekle": 7,
+   "bekle": 8,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 7,
+   "toplanti": 8,
    "long": 0,
    "short": 0,
-   "bekle": 7,
+   "bekle": 8,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 7,
+   "toplanti": 8,
    "long": 4,
-   "short": 0,
+   "short": 1,
    "bekle": 3,
    "cevapsiz": 0,
    "kazanan": 1,
@@ -69,6 +70,17 @@
    "kaynak": "hayalet",
    "model": "deepseek",
    "son_mum_t": 1795803300
+  },
+  {
+   "sembol": "GBPUSD",
+   "yon": "short",
+   "giris": 1.30936,
+   "stop": 1.3111933,
+   "hedef": 1.3066100500000002,
+   "rr": 1.4999999999999998,
+   "acilis": "2026-11-27T18:33:03.697981+00:00",
+   "kaynak": "hayalet",
+   "model": "deepseek"
   }
  ]
 }
