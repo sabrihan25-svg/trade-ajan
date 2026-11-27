@@ -1,12 +1,12 @@
 {
- "guncelleme": "2026-11-27T20:36:06.291838+00:00",
+ "guncelleme": "2026-11-27T20:39:08.840597+00:00",
  "rapor": [
   "Islem yok: Cuma aksami: hafta sonuna islem tasinmaz"
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0939,
+   "fiyat": 1.0937,
    "trend": "asagi",
    "h1": {
     "ema50": 1.096338,
@@ -87,7 +87,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.55,
+   "fiyat": 159.552,
    "trend": "yukari",
    "h1": {
     "ema50": 159.336466,
@@ -168,7 +168,7 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3097,
+   "fiyat": 1.3096,
    "trend": "asagi",
    "h1": {
     "ema50": 1.310875,
