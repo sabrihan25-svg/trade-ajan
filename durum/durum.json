@@ -8,7 +8,7 @@
   "mola_bitis": null,
   "olu": false,
   "gun": {
-   "tarih": "2026-11-26",
+   "tarih": "2026-11-27",
    "bakiye": 100.0
   },
   "hafta": {
@@ -17,8 +17,8 @@
   }
  },
  "kurul": {
-  "tarih": "2026-11-26",
-  "bugun": 2,
+  "tarih": "2026-11-27",
+  "bugun": 0,
   "toplam": 2,
   "son_tetik": {
    "USDJPY:long": "2026-11-26T21:01:33.534987+00:00"
