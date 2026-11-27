@@ -1,31 +1,31 @@
 {
- "guncelleme": "2026-11-27T04:57:43.572484+00:00",
+ "guncelleme": "2026-11-27T05:51:06.091151+00:00",
  "rapor": [
-  "Firsat yok, kurul toplanmadi."
+  "FIRSAT: USDJPY long - 1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu. Kurul toplaniyor.",
+  "  claude: wait guven=0.30 stop=%0.0 hedef=%0.0 - 1s trend zayıf ve fiyat 159.08-159.38 dar bandında yatay; fiyat bant tepesine yakın, tatil likiditesi düşük ve Cuma günü olduğundan ödül/risk yetersiz. 160 civarı müdahale riski de long için tavanı sınırlıyor.",
+  "  gpt: wait guven=0.85 stop=%0.0 hedef=%0.0 - Yukarı yönlü teknik eğilime rağmen 159,379 direncine kalan mesafe, minimum ATR stopuyla bile 1,5 kat hedefi karşılamıyor; direnç üzerinde kalıcılık veya daha uygun geri çekilme beklenmeli. Haberler net dolar desteği sunmazken tatil likiditesi ve spreadin 15dk ATR'sinin %21,3'üne ulaşması girişin cazibesini azaltıyor.",
+  "  deepseek: long guven=0.55 stop=%0.08 hedef=%0.12 - 15 dakikalıkta EMA50'ye geri çekilme sonrası gelen yukarı dönüş ve 1 saatlik yukarı trend uyumlu; ancak tatil likiditesi düşük olduğu için güven orta düzeyde.",
+  "KARAR: islem yok: modeller ayni yonde degil: claude=wait, gpt=wait, deepseek=long"
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0976,
+   "fiyat": 1.0984,
    "trend": null,
    "h1": {
-    "ema50": 1.096905,
-    "ema200": 1.09869,
-    "rsi": 55.9,
-    "atr": 0.000758
+    "ema50": 1.096926,
+    "ema200": 1.098678,
+    "rsi": 51.2,
+    "atr": 0.000747
    },
    "m15": {
-    "ema50": 1.097542,
-    "rsi": 46.6,
-    "atr": 0.000324,
+    "ema50": 1.097621,
+    "rsi": 63.4,
+    "atr": 0.000343,
     "tepe": 1.09866,
     "dip": 1.096371
    },
    "kapanislar": [
-    1.09878,
-    1.098901,
-    1.098901,
-    1.098418,
     1.098298,
     1.098298,
     1.097695,
@@ -81,32 +81,32 @@
     1.097936,
     1.097815,
     1.097695,
-    1.097454
+    1.097454,
+    1.097454,
+    1.097815,
+    1.098418,
+    1.098539
    ],
    "firsat": null
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.26,
+   "fiyat": 159.295,
    "trend": "yukari",
    "h1": {
-    "ema50": 159.216478,
-    "ema200": 159.189815,
-    "rsi": 51.0,
-    "atr": 0.104542
+    "ema50": 159.218969,
+    "ema200": 159.190713,
+    "rsi": 53.5,
+    "atr": 0.103718
    },
    "m15": {
-    "ema50": 159.247589,
-    "rsi": 48.8,
-    "atr": 0.052864,
+    "ema50": 159.253483,
+    "rsi": 59.8,
+    "atr": 0.05629,
     "tepe": 159.378998,
     "dip": 159.134995
    },
    "kapanislar": [
-    159.194,
-    159.186005,
-    159.195007,
-    159.203003,
     159.201004,
     159.210007,
     159.242004,
@@ -162,32 +162,36 @@
     159.244003,
     159.231003,
     159.214005,
-    159.238007
+    159.238007,
+    159.279999,
+    159.287994,
+    159.261993,
+    159.317993
    ],
-   "firsat": null
+   "firsat": {
+    "tur": "geri_cekilme_bitti",
+    "yon": "long",
+    "aciklama": "1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu"
+   }
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3119,
+   "fiyat": 1.3127,
    "trend": null,
    "h1": {
-    "ema50": 1.310346,
-    "ema200": 1.313348,
-    "rsi": 56.8,
-    "atr": 0.001056
+    "ema50": 1.3104,
+    "ema200": 1.313332,
+    "rsi": 55.9,
+    "atr": 0.00101
    },
    "m15": {
-    "ema50": 1.311155,
-    "rsi": 52.6,
-    "atr": 0.000402,
+    "ema50": 1.311347,
+    "rsi": 67.6,
+    "atr": 0.000419,
     "tepe": 1.31306,
     "dip": 1.309415
    },
    "kapanislar": [
-    1.31194,
-    1.31194,
-    1.311527,
-    1.310788,
     1.311131,
     1.310805,
     1.310479,
@@ -243,7 +247,11 @@
     1.311837,
     1.311682,
     1.311751,
-    1.311579
+    1.311579,
+    1.311716,
+    1.312164,
+    1.31287,
+    1.312973
    ],
    "firsat": null
   }
@@ -258,34 +266,34 @@
   "gecmis": []
  },
  "kurul": {
-  "bugun": 1,
-  "toplam": 3,
+  "bugun": 2,
+  "toplam": 4,
   "sinir": 6
  },
  "karne": {
   "claude": {
-   "toplanti": 3,
+   "toplanti": 4,
    "long": 0,
    "short": 0,
-   "bekle": 3,
+   "bekle": 4,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 3,
+   "toplanti": 4,
    "long": 0,
    "short": 0,
-   "bekle": 3,
+   "bekle": 4,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 3,
-   "long": 2,
+   "toplanti": 4,
+   "long": 3,
    "short": 0,
    "bekle": 1,
    "cevapsiz": 0,
@@ -398,6 +406,42 @@
      "hedef_yuzde": 0.08,
      "gecerlilik_dk": 30,
      "gerekce": "1s trend yukarı, 15dk EMA50'den dönüş ve yükseliş mumu; Tokyo TÜFE sonrası tatil likiditesinde devam riski sınırlı.",
+     "hizmet_eden_model": "deepseek-v4-pro"
+    }
+   },
+   "sonuc": "islem yok: modeller ayni yonde degil: claude=wait, gpt=wait, deepseek=long"
+  },
+  {
+   "zaman": "2026-11-27T05:51:06.091151+00:00",
+   "sembol": "USDJPY",
+   "firsat": "geri_cekilme_bitti",
+   "kod_yonu": "long",
+   "oylar": {
+    "claude": {
+     "yon": "wait",
+     "guven": 0.3,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 30,
+     "gerekce": "1s trend zayıf ve fiyat 159.08-159.38 dar bandında yatay; fiyat bant tepesine yakın, tatil likiditesi düşük ve Cuma günü olduğundan ödül/risk yetersiz. 160 civarı müdahale riski de long için tavanı sınırlıyor.",
+     "hizmet_eden_model": "claude-fable-5-2"
+    },
+    "gpt": {
+     "yon": "wait",
+     "guven": 0.85,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Yukarı yönlü teknik eğilime rağmen 159,379 direncine kalan mesafe, minimum ATR stopuyla bile 1,5 kat hedefi karşılamıyor; direnç üzerinde kalıcılık veya daha uygun geri çekilme beklenmeli. Haberler net dolar desteği sunmazken tatil likiditesi ve spreadin 15dk ATR'sinin %21,3'üne ulaşması girişin cazibesini azaltıyor.",
+     "hizmet_eden_model": "gpt-6-astra"
+    },
+    "deepseek": {
+     "yon": "long",
+     "guven": 0.55,
+     "stop_yuzde": 0.08,
+     "hedef_yuzde": 0.12,
+     "gecerlilik_dk": 60,
+     "gerekce": "15 dakikalıkta EMA50'ye geri çekilme sonrası gelen yukarı dönüş ve 1 saatlik yukarı trend uyumlu; ancak tatil likiditesi düşük olduğu için güven orta düzeyde.",
      "hizmet_eden_model": "deepseek-v4-pro"
     }
    },
