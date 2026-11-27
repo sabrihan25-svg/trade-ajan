@@ -52,8 +52,8 @@
    "bekle": 1,
    "cevapsiz": 0,
    "kazanan": 0,
-   "kaybeden": 0,
-   "toplam_R": 0.0
+   "kaybeden": 1,
+   "toplam_R": -1.0
   }
  },
  "hayaletler": [
@@ -67,19 +67,7 @@
    "acilis": "2026-11-26T15:49:48.098325+00:00",
    "kaynak": "hayalet",
    "model": "deepseek",
-   "son_mum_t": 1795740300
-  },
-  {
-   "sembol": "USDJPY",
-   "yon": "long",
-   "giris": 159.321,
-   "stop": 159.2572764,
-   "hedef": 159.4484472,
-   "rr": 2.0,
-   "acilis": "2026-11-27T00:03:55.609769+00:00",
-   "kaynak": "hayalet",
-   "model": "deepseek",
-   "son_mum_t": 1795740300
+   "son_mum_t": 1795743900
   }
  ]
 }
