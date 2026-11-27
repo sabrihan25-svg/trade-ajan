@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-27T08:23:55.511543+00:00",
+ "guncelleme": "2026-11-27T08:27:09.315727+00:00",
  "rapor": [
   "Takvim alinamadi: https://nfs.faireconomy.media/ff_calendar_thisweek.json: HTTP 429",
   "Islem yok: takvim okunamadi (haber saatleri bilinmeden islem acilmaz)"
@@ -7,7 +7,7 @@
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0965,
+   "fiyat": 1.0967,
    "trend": null,
    "h1": {
     "ema50": 1.097053,
@@ -88,7 +88,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.378,
+   "fiyat": 159.398,
    "trend": "yukari",
    "h1": {
     "ema50": 159.232848,
@@ -173,7 +173,7 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3122,
+   "fiyat": 1.3124,
    "trend": null,
    "h1": {
     "ema50": 1.310626,
