@@ -1,14 +1,11 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 17:16** (Turkiye saati)
+Son kontrol: **27.11.2026 17:20** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- FIRSAT: EURUSD short - 1s trend asagi; 15dk'da EMA50'ye geri cekilme sonrasi asagi donus mumu. Kurul toplaniyor.
--   gpt: wait guven=0.90 stop=%0.0 hedef=%0.0 - Saatlik trend aşağı olsa da son 15 dakikalık kapanışlar EMA50'ye yeni bir geri çekilmeyi doğrulamıyor; fiyat yakın dip desteğinin üzerinde ve düşüşü kovalamak elverişsiz. Tatil kaynaklı düşük likidite ve dolar açısından karışık haberler nedeniyle destek kırılıp aşağı yönlü yeniden test doğrulanana kadar bekle.
--   claude: wait guven=0.62 stop=%0.0 hedef=%0.0 - 1s trend aşağı ama fiyat EMA50'ye geri çekilmedi; kırılım sonrası zaten 17 pip uzamış ve RSI 33 ile dibe yakın satış kovalamak olur. Şükran Günü sonrası ince Cuma piyasası ve hafta sonu öncesi kısıtlı süre, mantıklı stop/hedef oranını zayıflatıyor.
--   deepseek: wait guven=0.30 stop=%0.0 hedef=%0.0 - Trend asagi olsa da dolar zayifligi haberleri ve Goldman'in EUR/USD yukselis beklentisi kisa pozisyonla uyumlu degil; fiyat EMA50'den uzakta oldugundan kovalamak yerine geri cekilme beklenmeli.
-- KARAR: islem yok: uc model de 'bekle' dedi
+- EURUSD: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi
+- Firsat yok, kurul toplanmadi.
 
 ## Golge (kagit) hesap
 
