@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-27T03:32:21.692470+00:00",
+ "guncelleme": "2026-11-27T03:35:23.619503+00:00",
  "rapor": [
   "Firsat yok, kurul toplanmadi."
  ],
@@ -87,7 +87,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.25,
+   "fiyat": 159.208,
    "trend": null,
    "h1": {
     "ema50": 159.215185,
