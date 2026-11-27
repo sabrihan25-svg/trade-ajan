@@ -1,12 +1,16 @@
 {
- "guncelleme": "2026-11-27T14:13:24.617323+00:00",
+ "guncelleme": "2026-11-27T14:16:27.375434+00:00",
  "rapor": [
-  "Firsat yok, kurul toplanmadi."
+  "FIRSAT: EURUSD short - 1s trend asagi; 15dk'da EMA50'ye geri cekilme sonrasi asagi donus mumu. Kurul toplaniyor.",
+  "  gpt: wait guven=0.90 stop=%0.0 hedef=%0.0 - Saatlik trend aşağı olsa da son 15 dakikalık kapanışlar EMA50'ye yeni bir geri çekilmeyi doğrulamıyor; fiyat yakın dip desteğinin üzerinde ve düşüşü kovalamak elverişsiz. Tatil kaynaklı düşük likidite ve dolar açısından karışık haberler nedeniyle destek kırılıp aşağı yönlü yeniden test doğrulanana kadar bekle.",
+  "  claude: wait guven=0.62 stop=%0.0 hedef=%0.0 - 1s trend aşağı ama fiyat EMA50'ye geri çekilmedi; kırılım sonrası zaten 17 pip uzamış ve RSI 33 ile dibe yakın satış kovalamak olur. Şükran Günü sonrası ince Cuma piyasası ve hafta sonu öncesi kısıtlı süre, mantıklı stop/hedef oranını zayıflatıyor.",
+  "  deepseek: wait guven=0.30 stop=%0.0 hedef=%0.0 - Trend asagi olsa da dolar zayifligi haberleri ve Goldman'in EUR/USD yukselis beklentisi kisa pozisyonla uyumlu degil; fiyat EMA50'den uzakta oldugundan kovalamak yerine geri cekilme beklenmeli.",
+  "KARAR: islem yok: uc model de 'bekle' dedi"
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0949,
+   "fiyat": 1.0951,
    "trend": "asagi",
    "h1": {
     "ema50": 1.096934,
@@ -15,14 +19,13 @@
     "atr": 0.000957
    },
    "m15": {
-    "ema50": 1.096862,
-    "rsi": 35.1,
-    "atr": 0.000557,
+    "ema50": 1.096791,
+    "rsi": 33.1,
+    "atr": 0.00056,
     "tepe": 1.097333,
     "dip": 1.094571
    },
    "kapanislar": [
-    1.097333,
     1.097333,
     1.097333,
     1.097213,
@@ -81,13 +84,18 @@
     1.09553,
     1.094691,
     1.09505,
-    1.09529
+    1.09529,
+    1.09505
    ],
-   "firsat": null
+   "firsat": {
+    "tur": "geri_cekilme_bitti",
+    "yon": "short",
+    "aciklama": "1s trend asagi; 15dk'da EMA50'ye geri cekilme sonrasi asagi donus mumu"
+   }
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.545,
+   "fiyat": 159.54,
    "trend": "yukari",
    "h1": {
     "ema50": 159.285083,
@@ -96,14 +104,13 @@
     "atr": 0.109434
    },
    "m15": {
-    "ema50": 159.404008,
-    "rsi": 63.5,
-    "atr": 0.060027,
+    "ema50": 159.409772,
+    "rsi": 62.7,
+    "atr": 0.058097,
     "tepe": 159.580994,
     "dip": 159.367004
    },
    "kapanislar": [
-    159.287994,
     159.253006,
     159.270004,
     159.274002,
@@ -162,13 +169,14 @@
     159.569,
     159.548004,
     159.531998,
-    159.556
+    159.556,
+    159.550995
    ],
    "firsat": null
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3112,
+   "fiyat": 1.3113,
    "trend": null,
    "h1": {
     "ema50": 1.31107,
@@ -177,14 +185,13 @@
     "atr": 0.001122
    },
    "m15": {
-    "ema50": 1.312204,
-    "rsi": 47.0,
-    "atr": 0.000617,
+    "ema50": 1.31217,
+    "rsi": 40.7,
+    "atr": 0.000636,
     "tepe": 1.313508,
     "dip": 1.310839
    },
    "kapanislar": [
-    1.310668,
     1.310685,
     1.310839,
     1.310753,
@@ -243,7 +250,8 @@
     1.311648,
     1.310856,
     1.311389,
-    1.312112
+    1.312112,
+    1.311321
    ],
    "firsat": null
   }
@@ -258,36 +266,36 @@
   "gecmis": []
  },
  "kurul": {
-  "bugun": 4,
-  "toplam": 6,
+  "bugun": 5,
+  "toplam": 7,
   "sinir": 6
  },
  "karne": {
   "claude": {
-   "toplanti": 6,
+   "toplanti": 7,
    "long": 0,
    "short": 0,
-   "bekle": 6,
+   "bekle": 7,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 6,
+   "toplanti": 7,
    "long": 0,
    "short": 0,
-   "bekle": 6,
+   "bekle": 7,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 6,
+   "toplanti": 7,
    "long": 4,
    "short": 0,
-   "bekle": 2,
+   "bekle": 3,
    "cevapsiz": 0,
    "kazanan": 1,
    "kaybeden": 2,
@@ -510,6 +518,42 @@
     }
    },
    "sonuc": "islem yok: modeller ayni yonde degil: gpt=wait, claude=wait, deepseek=long"
+  },
+  {
+   "zaman": "2026-11-27T14:16:27.375434+00:00",
+   "sembol": "EURUSD",
+   "firsat": "geri_cekilme_bitti",
+   "kod_yonu": "short",
+   "oylar": {
+    "gpt": {
+     "yon": "wait",
+     "guven": 0.9,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Saatlik trend aşağı olsa da son 15 dakikalık kapanışlar EMA50'ye yeni bir geri çekilmeyi doğrulamıyor; fiyat yakın dip desteğinin üzerinde ve düşüşü kovalamak elverişsiz. Tatil kaynaklı düşük likidite ve dolar açısından karışık haberler nedeniyle destek kırılıp aşağı yönlü yeniden test doğrulanana kadar bekle.",
+     "hizmet_eden_model": "gpt-6-astra"
+    },
+    "claude": {
+     "yon": "wait",
+     "guven": 0.62,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 30,
+     "gerekce": "1s trend aşağı ama fiyat EMA50'ye geri çekilmedi; kırılım sonrası zaten 17 pip uzamış ve RSI 33 ile dibe yakın satış kovalamak olur. Şükran Günü sonrası ince Cuma piyasası ve hafta sonu öncesi kısıtlı süre, mantıklı stop/hedef oranını zayıflatıyor.",
+     "hizmet_eden_model": "claude-fable-5-2"
+    },
+    "deepseek": {
+     "yon": "wait",
+     "guven": 0.3,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Trend asagi olsa da dolar zayifligi haberleri ve Goldman'in EUR/USD yukselis beklentisi kisa pozisyonla uyumlu degil; fiyat EMA50'den uzakta oldugundan kovalamak yerine geri cekilme beklenmeli.",
+     "hizmet_eden_model": "deepseek-v4-pro"
+    }
+   },
+   "sonuc": "islem yok: uc model de 'bekle' dedi"
   }
  ],
  "aktif_sinyal": null,

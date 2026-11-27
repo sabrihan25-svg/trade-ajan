@@ -18,38 +18,39 @@
  },
  "kurul": {
   "tarih": "2026-11-27",
-  "bugun": 4,
-  "toplam": 6,
+  "bugun": 5,
+  "toplam": 7,
   "son_tetik": {
-   "USDJPY:long": "2026-11-27T13:17:06.653063+00:00"
+   "USDJPY:long": "2026-11-27T13:17:06.653063+00:00",
+   "EURUSD:short": "2026-11-27T14:16:27.375434+00:00"
   }
  },
  "karne": {
   "claude": {
-   "toplanti": 6,
+   "toplanti": 7,
    "long": 0,
    "short": 0,
-   "bekle": 6,
+   "bekle": 7,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 6,
+   "toplanti": 7,
    "long": 0,
    "short": 0,
-   "bekle": 6,
+   "bekle": 7,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 6,
+   "toplanti": 7,
    "long": 4,
    "short": 0,
-   "bekle": 2,
+   "bekle": 3,
    "cevapsiz": 0,
    "kazanan": 1,
    "kaybeden": 2,
@@ -67,7 +68,7 @@
    "acilis": "2026-11-27T13:17:06.653063+00:00",
    "kaynak": "hayalet",
    "model": "deepseek",
-   "son_mum_t": 1795787100
+   "son_mum_t": 1795788000
   }
  ]
 }
