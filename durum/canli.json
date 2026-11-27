@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-27T05:55:30.382156+00:00",
+ "guncelleme": "2026-11-27T05:58:32.626886+00:00",
  "rapor": [
   "USDJPY: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi",
   "Firsat yok, kurul toplanmadi."
@@ -88,7 +88,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.324,
+   "fiyat": 159.323,
    "trend": "yukari",
    "h1": {
     "ema50": 159.218969,
