@@ -1,10 +1,9 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 17:29** (Turkiye saati)
+Son kontrol: **27.11.2026 17:32** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- EURUSD: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi
 - Firsat yok, kurul toplanmadi.
 
 ## Golge (kagit) hesap
