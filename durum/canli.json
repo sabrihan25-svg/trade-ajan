@@ -1,13 +1,16 @@
 {
- "guncelleme": "2026-11-27T00:00:52.806896+00:00",
+ "guncelleme": "2026-11-27T00:03:55.609769+00:00",
  "rapor": [
-  "USDJPY: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi",
-  "Firsat yok, kurul toplanmadi."
+  "FIRSAT: USDJPY long - 1s trend yukari; 15dk'da EMA50'ye geri cekilme sonrasi yukari donus mumu. Kurul toplaniyor.",
+  "  claude: wait guven=0.30 stop=%0.0 hedef=%0.0 - Şükran Günü tatil likiditesinde fiyat 159.08-159.34 arasında dar bir yatay bantta, EMA'lar iç içe ve trend zayıf; spread ATR'nin %32'si kadar. 159.9 müdahale bölgesi riski ve hafta sonu öncesi net bir avantaj yokken beklemek daha doğru.",
+  "  gpt: wait guven=0.89 stop=%0.0 hedef=%0.0 - Yukarı trend sınırlı güçte; 159,300–159,338 dirençleri, 159,192 dibinin altına yerleştirilecek yapısal stopa karşı en az 1,5R için yeterli alan bırakmıyor. Spread 15dk ATR'nin yaklaşık %32'si ve yakın zamanda açıklanması beklenen Tokyo çekirdek TÜFE'nin gerçekleşen değeri pakette yok; giriş için teyit yetersiz.",
+  "  deepseek: long guven=0.50 stop=%0.04 hedef=%0.08 - 1s trend yukarı, 15dk EMA50'den dönüş ve yükseliş mumu; Tokyo TÜFE sonrası tatil likiditesinde devam riski sınırlı.",
+  "KARAR: islem yok: modeller ayni yonde degil: claude=wait, gpt=wait, deepseek=long"
  ],
  "tarama": [
   {
    "sembol": "EURUSD",
-   "fiyat": 1.0973,
+   "fiyat": 1.0971,
    "trend": null,
    "h1": {
     "ema50": 1.096788,
@@ -88,7 +91,7 @@
   },
   {
    "sembol": "USDJPY",
-   "fiyat": 159.281,
+   "fiyat": 159.309,
    "trend": "yukari",
    "h1": {
     "ema50": 159.212524,
@@ -173,7 +176,7 @@
   },
   {
    "sembol": "GBPUSD",
-   "fiyat": 1.3108,
+   "fiyat": 1.3105,
    "trend": null,
    "h1": {
     "ema50": 1.310147,
@@ -263,34 +266,34 @@
   "gecmis": []
  },
  "kurul": {
-  "bugun": 0,
-  "toplam": 2,
+  "bugun": 1,
+  "toplam": 3,
   "sinir": 6
  },
  "karne": {
   "claude": {
-   "toplanti": 2,
+   "toplanti": 3,
    "long": 0,
    "short": 0,
-   "bekle": 2,
+   "bekle": 3,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "gpt": {
-   "toplanti": 2,
+   "toplanti": 3,
    "long": 0,
    "short": 0,
-   "bekle": 2,
+   "bekle": 3,
    "cevapsiz": 0,
    "kazanan": 0,
    "kaybeden": 0,
    "toplam_R": 0.0
   },
   "deepseek": {
-   "toplanti": 2,
-   "long": 1,
+   "toplanti": 3,
+   "long": 2,
    "short": 0,
    "bekle": 1,
    "cevapsiz": 0,
@@ -371,6 +374,42 @@
     }
    },
    "sonuc": "islem yok: uc model de 'bekle' dedi"
+  },
+  {
+   "zaman": "2026-11-27T00:03:55.609769+00:00",
+   "sembol": "USDJPY",
+   "firsat": "geri_cekilme_bitti",
+   "kod_yonu": "long",
+   "oylar": {
+    "claude": {
+     "yon": "wait",
+     "guven": 0.3,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Şükran Günü tatil likiditesinde fiyat 159.08-159.34 arasında dar bir yatay bantta, EMA'lar iç içe ve trend zayıf; spread ATR'nin %32'si kadar. 159.9 müdahale bölgesi riski ve hafta sonu öncesi net bir avantaj yokken beklemek daha doğru.",
+     "hizmet_eden_model": "claude-fable-5-2"
+    },
+    "gpt": {
+     "yon": "wait",
+     "guven": 0.89,
+     "stop_yuzde": 0.0,
+     "hedef_yuzde": 0.0,
+     "gecerlilik_dk": 15,
+     "gerekce": "Yukarı trend sınırlı güçte; 159,300–159,338 dirençleri, 159,192 dibinin altına yerleştirilecek yapısal stopa karşı en az 1,5R için yeterli alan bırakmıyor. Spread 15dk ATR'nin yaklaşık %32'si ve yakın zamanda açıklanması beklenen Tokyo çekirdek TÜFE'nin gerçekleşen değeri pakette yok; giriş için teyit yetersiz.",
+     "hizmet_eden_model": "gpt-6-astra"
+    },
+    "deepseek": {
+     "yon": "long",
+     "guven": 0.5,
+     "stop_yuzde": 0.04,
+     "hedef_yuzde": 0.08,
+     "gecerlilik_dk": 30,
+     "gerekce": "1s trend yukarı, 15dk EMA50'den dönüş ve yükseliş mumu; Tokyo TÜFE sonrası tatil likiditesinde devam riski sınırlı.",
+     "hizmet_eden_model": "deepseek-v4-pro"
+    }
+   },
+   "sonuc": "islem yok: modeller ayni yonde degil: claude=wait, gpt=wait, deepseek=long"
   }
  ],
  "aktif_sinyal": null,
