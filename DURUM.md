@@ -1,11 +1,11 @@
 # Ajan durumu
 
-Son kontrol: **27.11.2026 11:20** (Turkiye saati)
+Son kontrol: **27.11.2026 11:23** (Turkiye saati)
 
 ## Son kontrolde ne oldu
 
-- USDJPY: geri_cekilme_bitti firsati var ama yakin zamanda kurul toplandi
-- Firsat yok, kurul toplanmadi.
+- Takvim alinamadi: https://nfs.faireconomy.media/ff_calendar_thisweek.json: HTTP 429
+- Islem yok: takvim okunamadi (haber saatleri bilinmeden islem acilmaz)
 
 ## Golge (kagit) hesap
 
